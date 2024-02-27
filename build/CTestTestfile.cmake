@@ -5,5 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("prcs_image")
 subdirs("cam_stream")
+subdirs("yolo_cam")
 subdirs("yolo_proc")

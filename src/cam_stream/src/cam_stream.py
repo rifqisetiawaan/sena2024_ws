@@ -5,6 +5,7 @@ import rospy
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
+import imutils
 
 def publish_message():
     pub = rospy.Publisher('video_topic', Image, queue_size=10)
@@ -19,13 +20,13 @@ def publish_message():
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
-
+        frame = imutils.resize(frame, width=480)
         if ret==True:
             rospy.loginfo('publishing video frame')
 
             # publish and convert img to ros format
-            pub.publish(br.cv2_to_imgmsg(frame))
-
+            pub.publish(br.cv2_to_imgmsg(frame, 'bgr8'))
+            # pub.publish(br.cv2_to_compressed_imgmsg(frame))
         rate.sleep()
 
 if __name__ == '__main__':

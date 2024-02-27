@@ -8,3 +8,4 @@
 
 # modified environment variables
 export PWD='/home/krsbi/sena2024_ws/build'
+export PYTHONPATH="/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
