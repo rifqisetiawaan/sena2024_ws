@@ -95,10 +95,3 @@
 /home/krsbi/sena2024_ws/build/yolo_cam/CMakeFiles/rebuild_cache.dir
 /home/krsbi/sena2024_ws/build/yolo_cam/CMakeFiles/edit_cache.dir
 /home/krsbi/sena2024_ws/build/yolo_cam/CMakeFiles/test.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/install/strip.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/install/local.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/install.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/list_install_components.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/rebuild_cache.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/edit_cache.dir
-/home/krsbi/sena2024_ws/build/yolo_proc/CMakeFiles/test.dir

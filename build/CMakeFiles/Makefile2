@@ -57,7 +57,6 @@ all: gtest/all
 all: prcs_image/all
 all: cam_stream/all
 all: yolo_cam/all
-all: yolo_proc/all
 
 .PHONY : all
 
@@ -66,7 +65,6 @@ preinstall: gtest/preinstall
 preinstall: prcs_image/preinstall
 preinstall: cam_stream/preinstall
 preinstall: yolo_cam/preinstall
-preinstall: yolo_proc/preinstall
 
 .PHONY : preinstall
 
@@ -80,7 +78,6 @@ clean: gtest/clean
 clean: prcs_image/clean
 clean: cam_stream/clean
 clean: yolo_cam/clean
-clean: yolo_proc/clean
 
 .PHONY : clean
 
@@ -231,24 +228,6 @@ yolo_cam/preinstall:
 yolo_cam/clean:
 
 .PHONY : yolo_cam/clean
-
-#=============================================================================
-# Directory level rules for directory yolo_proc
-
-# Recursive "all" directory target.
-yolo_proc/all:
-
-.PHONY : yolo_proc/all
-
-# Recursive "preinstall" directory target.
-yolo_proc/preinstall:
-
-.PHONY : yolo_proc/preinstall
-
-# Recursive "clean" directory target.
-yolo_proc/clean:
-
-.PHONY : yolo_proc/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir

@@ -22,8 +22,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "prcs_image/cmake/prcs_image-genmsg.cmake"
   "yolo_cam/catkin_generated/ordered_paths.cmake"
   "yolo_cam/catkin_generated/package.cmake"
-  "yolo_proc/catkin_generated/ordered_paths.cmake"
-  "yolo_proc/catkin_generated/package.cmake"
   "/home/krsbi/sena2024_ws/devel/share/prcs_image/cmake/prcs_image-msg-paths.cmake"
   "/home/krsbi/sena2024_ws/src/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/cam_stream/CMakeLists.txt"
@@ -32,8 +30,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/krsbi/sena2024_ws/src/prcs_image/package.xml"
   "/home/krsbi/sena2024_ws/src/yolo_cam/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/yolo_cam/package.xml"
-  "/home/krsbi/sena2024_ws/src/yolo_proc/CMakeLists.txt"
-  "/home/krsbi/sena2024_ws/src/yolo_proc/package.xml"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"
   "/opt/ros/noetic/share/catkin/cmake/atomic_configure_file.cmake"
@@ -247,7 +243,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "prcs_image/CMakeFiles/CMakeDirectoryInformation.cmake"
   "cam_stream/CMakeFiles/CMakeDirectoryInformation.cmake"
   "yolo_cam/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "yolo_proc/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
