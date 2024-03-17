@@ -77,6 +77,10 @@ def publish_message():
                     vel = vl.velo.kejar(float(ang), float(dist_real))
                     print(vel)
 
+                    # kinematika motor
+                    kin = vl.velo.inv_motor(vel[0], vel[1])
+                    print(kin)
+
                     # Use putText() method for inserting text on video
                     pr.process_image.text_display_det(frame, ang, dist_real, vel)
                     
