@@ -45,12 +45,11 @@ def publish_message():
                 confidence = conf
                 detected_class = cls
                 name = names[int(cls)]
-                
-            
+
             if classes == [0.0]:
                 # print("%.2f" % confidence)
                 # print('----------')
-
+                
                 # hitung centroid
                 centroid = pr.process_image.find_centroid(x1, y1, x2, y2)
                 print(centroid)
