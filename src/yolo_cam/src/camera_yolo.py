@@ -2,23 +2,25 @@
 
 # cam stream program, pub ke yolo_dist
 import rospy
+import numpy as np
+from geometry_msgs.msg import Point32
 from sensor_msgs.msg import Image
 import math
 import cv2
-from prcs_image.msg import squareInfo
+# from prcs_image.msg import squareInfo
 from prcs_image.image_process import process_img as pr
 from prcs_image.command_vel import velo as vl
 from ultralytics import YOLO
 
 def publish_message():
-    pub = rospy.Publisher('video_topic', squareInfo, queue_size=10)
+    pub = rospy.Publisher('video_topic', Point32, queue_size=10)
     rospy.init_node('webcam_stream', anonymous=False)
     
     rate = rospy.Rate(10)
 
     cap = cv2.VideoCapture(0)
     model = YOLO('/home/krsbi/sena2024_ws/src/yolo_cam/src/best.pt')
-    sq = squareInfo()
+    tws = Point32()
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
@@ -74,25 +76,24 @@ def publish_message():
 
                     # penentuan arah gerak
                     vel = vl.velo.kejar(float(ang), float(dist_real))
-                    print(vel)
+                    print('Ini Status ----> '+str(vel[0]))
 
                     # kinematika motor
                     kin = vl.velo.inv_motor(vel[0], vel[1])
-                    print(kin)
+                    print('Power Motor '+str(kin))
 
                     # Use putText() method for inserting text on video
-                    pr.process_image.text_display_det(frame, ang, dist_real, vel)
+                    pr.process_image.text_display_det(frame, ang, dist_real, vel[0], kin)
                     
-                    sq.x1.data = int(x1)
-                    sq.x2.data = int(x2)
-                    sq.y1.data = int(y1)
-                    sq.y2.data = int(y2)
+                    tws.x = kin[0]
+                    tws.y = kin[1]
+                    tws.z = kin[2]
+                    # tws.linear = kin
             
             else:
-                sq.x1.data = 0
-                sq.x2.data = 0
-                sq.y1.data = 0
-                sq.y2.data = 0
+                tws.x = 0
+                tws.y = 0
+                tws.z = 0
 
                 pr.process_image.text_display_na(frame)                
 
@@ -105,7 +106,7 @@ def publish_message():
 
             # publish and convert img to ros format
             # pub.publish(br.cv2_to_imgmsg(frame, 'bgr8'))
-            pub.publish(sq)
+            pub.publish(tws)
         rate.sleep()
         
 
@@ -114,3 +115,8 @@ if __name__ == '__main__':
         publish_message()
     except rospy.ROSInterruptException:
         pass
+
+# run sebelum dibuat roslaunch:
+# rosrun yolo_cam camera_yolo.py
+# rosrun rosserial_arduino serial_node.py _port:=/dev/ttyUSB0
+# rostopic echo /video_topic
