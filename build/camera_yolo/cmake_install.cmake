@@ -1,4 +1,4 @@
-# Install script for directory: /home/krsbi/sena2024_ws/src/yolo_cam
+# Install script for directory: /home/krsbi/sena2024_ws/src/camera_yolo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/krsbi/sena2024_ws/build/yolo_cam/catkin_generated/installspace/camera_yolo.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/krsbi/sena2024_ws/build/camera_yolo/catkin_generated/installspace/camera_yolo.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/camera_yolo/cmake" TYPE FILE FILES
-    "/home/krsbi/sena2024_ws/build/yolo_cam/catkin_generated/installspace/camera_yoloConfig.cmake"
-    "/home/krsbi/sena2024_ws/build/yolo_cam/catkin_generated/installspace/camera_yoloConfig-version.cmake"
+    "/home/krsbi/sena2024_ws/build/camera_yolo/catkin_generated/installspace/camera_yoloConfig.cmake"
+    "/home/krsbi/sena2024_ws/build/camera_yolo/catkin_generated/installspace/camera_yoloConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/camera_yolo" TYPE FILE FILES "/home/krsbi/sena2024_ws/src/yolo_cam/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/camera_yolo" TYPE FILE FILES "/home/krsbi/sena2024_ws/src/camera_yolo/package.xml")
 endif()
 

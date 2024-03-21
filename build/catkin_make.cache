@@ -1,2 +1,2 @@
-cam_stream:prcs_image:yolo_cam
+cam_stream:camera_yolo
 -DCATKIN_DEVEL_PREFIX=/home/krsbi/sena2024_ws/devel -DCMAKE_INSTALL_PREFIX=/home/krsbi/sena2024_ws/install -G Unix Makefiles

@@ -12,7 +12,7 @@ try:
     from catkin.environment_cache import generate_environment_script
 except ImportError:
     # search for catkin package in all workspaces and prepend to path
-    for workspace in '/home/krsbi/sena2024_ws/devel;/home/krsbi/KIROSENA2024v2_ws/devel;/home/krsbi/vision_ws/devel;/home/krsbi/KIROSENA2024_ws/devel;/home/krsbi/Vision-KiroSena/vision_ws/devel;/home/krsbi/open_cv_ws/devel;/home/krsbi/ros_arduino_ws/devel;/home/krsbi/catkin_ws/devel;/opt/ros/noetic'.split(';'):
+    for workspace in '/home/krsbi/sena2024_ws/devel;/home/krsbi/catkin_ws/devel;/opt/ros/noetic'.split(';'):
         python_path = os.path.join(workspace, 'lib/python3/dist-packages')
         if os.path.isdir(os.path.join(python_path, 'catkin')):
             sys.path.insert(0, python_path)

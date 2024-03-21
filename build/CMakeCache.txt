@@ -400,6 +400,12 @@ cam_stream_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/cam_stream
 //Value Computed by CMake
 cam_stream_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/cam_stream
 
+//Value Computed by CMake
+camera_yolo_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/camera_yolo
+
+//Value Computed by CMake
+camera_yolo_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/camera_yolo
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
@@ -699,7 +705,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

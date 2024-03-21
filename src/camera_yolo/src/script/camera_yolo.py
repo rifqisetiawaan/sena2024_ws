@@ -19,7 +19,7 @@ def publish_message():
     rate = rospy.Rate(10)
 
     cap = cv2.VideoCapture(0)
-    model = YOLO('/home/krsbi/sena2024_ws/src/yolo_cam/src/best.pt')
+    model = YOLO('/home/krsbi/sena2024_ws/src/camera_yolo/src/script/best.pt')
     tws = Point32()
     while not rospy.is_shutdown():
         # capture frame by frame
@@ -30,7 +30,7 @@ def publish_message():
         if ret==True:
             # rospy.loginfo('publishing video frame')
             
-            results = model(frame, conf=0.85)
+            results = model(frame, conf=0.7)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -118,5 +118,5 @@ if __name__ == '__main__':
 
 # run sebelum dibuat roslaunch:
 # rosrun yolo_cam camera_yolo.py
-# rosrun rosserial_arduino serial_node.py _port:=/dev/ttyUSB0
+# rosrun rosserial_arduino serial_node.py _port:=/dev/ttyUSB1
 # rostopic echo /video_topic

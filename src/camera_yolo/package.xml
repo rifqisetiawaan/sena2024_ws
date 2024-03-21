@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>yolo_cam</name>
+  <name>camera_yolo</name>
   <version>0.0.0</version>
-  <description>The yolo_cam package</description>
+  <description>The camera_yolo package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

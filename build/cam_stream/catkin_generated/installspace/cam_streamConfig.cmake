@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/krsbi/sena2024_ws/install/lib;/home/krsbi/sena2024_ws/devel/lib;/home/krsbi/KIROSENA2024v2_ws/devel/lib;/home/krsbi/vision_ws/devel/lib;/home/krsbi/KIROSENA2024_ws/devel/lib;/home/krsbi/Vision-KiroSena/vision_ws/devel/lib;/home/krsbi/open_cv_ws/devel/lib;/home/krsbi/ros_arduino_ws/devel/lib;/home/krsbi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/krsbi/sena2024_ws/install/lib;/home/krsbi/sena2024_ws/devel/lib;/home/krsbi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
