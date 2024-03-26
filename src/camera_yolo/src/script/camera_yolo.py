@@ -4,7 +4,7 @@
 import rospy
 import numpy as np
 from geometry_msgs.msg import Point32
-from sensor_msgs.msg import Image
+from open_base.msg import Movement
 import math
 import cv2
 # from prcs_image.msg import squareInfo
@@ -14,23 +14,24 @@ from ultralytics import YOLO
 
 def publish_message():
     pub = rospy.Publisher('video_topic', Point32, queue_size=10)
+    pub_sim = rospy.Publisher('open_base/command', Movement, queue_size=100)
     rospy.init_node('webcam_stream', anonymous=False)
     
     rate = rospy.Rate(10)
 
     cap = cv2.VideoCapture(0)
+    fps = cap.get(cv2.CAP_PROP_FPS)
     model = YOLO('/home/krsbi/sena2024_ws/src/camera_yolo/src/script/best.pt')
     tws = Point32()
+    vel_sim = Movement()
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
-        # frame = imutils.resize(frame, width=480)
-        
 
         if ret==True:
             # rospy.loginfo('publishing video frame')
             
-            results = model(frame, conf=0.7)
+            results = model(frame, conf=0.8)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -48,10 +49,7 @@ def publish_message():
                 detected_class = cls
                 name = names[int(cls)]
 
-            if classes == [0.0]:
-                # print("%.2f" % confidence)
-                # print('----------')
-                
+            if classes == [0.0]:                
                 # hitung centroid
                 centroid = pr.process_image.find_centroid(x1, y1, x2, y2)
                 print(centroid)
@@ -82,12 +80,20 @@ def publish_message():
                     kin = vl.velo.inv_motor(vel[0], vel[1])
                     print('Power Motor '+str(kin))
 
+                    print(fps)
+
                     # Use putText() method for inserting text on video
-                    pr.process_image.text_display_det(frame, ang, dist_real, vel[0], kin)
+                    pr.process_image.text_display_det(frame, ang, dist_real, vel[0], kin, fps)
                     
                     tws.x = kin[0]
                     tws.y = kin[1]
                     tws.z = kin[2]
+
+                    vel_sim.movement = 3
+                    vel_sim.wheel.v_right = tws.x
+                    vel_sim.wheel.v_left = tws.y
+                    vel_sim.wheel.v_back = tws.z
+                    
                     # tws.linear = kin
             
             else:
@@ -95,6 +101,10 @@ def publish_message():
                 tws.y = 0
                 tws.z = 0
 
+                vel_sim.wheel.v_right = 0
+                vel_sim.wheel.v_left = 0
+                vel_sim.wheel.v_back = 0
+ 
                 pr.process_image.text_display_na(frame)                
 
             # Display the annotated frame
@@ -106,6 +116,7 @@ def publish_message():
 
             # publish and convert img to ros format
             # pub.publish(br.cv2_to_imgmsg(frame, 'bgr8'))
+            pub_sim.publish(vel_sim)
             pub.publish(tws)
         rate.sleep()
         
@@ -117,6 +128,6 @@ if __name__ == '__main__':
         pass
 
 # run sebelum dibuat roslaunch:
-# rosrun yolo_cam camera_yolo.py
+# rosrun camera_yolo camera_yolo.py
 # rosrun rosserial_arduino serial_node.py _port:=/dev/ttyUSB1
 # rostopic echo /video_topic

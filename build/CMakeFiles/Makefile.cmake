@@ -17,11 +17,15 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin/catkin_generated/version/package.cmake"
   "catkin_generated/installspace/_setup_util.py"
   "catkin_generated/order_packages.cmake"
+  "trial_simulation/catkin_generated/ordered_paths.cmake"
+  "trial_simulation/catkin_generated/package.cmake"
   "/home/krsbi/sena2024_ws/src/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/cam_stream/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/cam_stream/package.xml"
   "/home/krsbi/sena2024_ws/src/camera_yolo/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/camera_yolo/package.xml"
+  "/home/krsbi/sena2024_ws/src/trial_simulation/CMakeLists.txt"
+  "/home/krsbi/sena2024_ws/src/trial_simulation/package.xml"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"
   "/opt/ros/noetic/share/catkin/cmake/atomic_configure_file.cmake"
@@ -208,6 +212,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "cam_stream/CMakeFiles/CMakeDirectoryInformation.cmake"
   "camera_yolo/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "trial_simulation/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

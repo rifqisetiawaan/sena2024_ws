@@ -7,3 +7,4 @@
 subdirs("gtest")
 subdirs("cam_stream")
 subdirs("camera_yolo")
+subdirs("trial_simulation")
