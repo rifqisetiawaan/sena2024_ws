@@ -7,23 +7,22 @@ from geometry_msgs.msg import Point32
 from open_base.msg import Movement
 import math
 import cv2
-# from prcs_image.msg import squareInfo
+from prcs_image.msg import squareInfo
 from prcs_image.image_process import process_img as pr
 from prcs_image.command_vel import velo as vl
 from ultralytics import YOLO
+from prcs_image.msg import yoloPos
 
 def publish_message():
-    pub = rospy.Publisher('video_topic', Point32, queue_size=10)
-    pub_sim = rospy.Publisher('open_base/command', Movement, queue_size=100)
-    rospy.init_node('webcam_stream', anonymous=False)
+    pub = rospy.Publisher('video_topic', yoloPos, queue_size=10)
+    rospy.init_node('camera_yolo', anonymous=False)
     
     rate = rospy.Rate(10)
 
     cap = cv2.VideoCapture(0)
     fps = cap.get(cv2.CAP_PROP_FPS)
     model = YOLO('/home/krsbi/sena2024_ws/src/camera_yolo/src/script/best.pt')
-    tws = Point32()
-    vel_sim = Movement()
+    mes = yoloPos()
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
@@ -31,7 +30,7 @@ def publish_message():
         if ret==True:
             # rospy.loginfo('publishing video frame')
             
-            results = model(frame, conf=0.8)
+            results = model(frame)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -48,76 +47,90 @@ def publish_message():
                 confidence = conf
                 detected_class = cls
                 name = names[int(cls)]
+                print("----START----")
+                # print("BOX----")
+                # print(box)
+                print("CLS----")
+                print(cls)
+                # print("CONF---")
+                # print(conf)
+                # print("----END----")
 
-            if classes == [0.0]:                
-                # hitung centroid
-                centroid = pr.process_image.find_centroid(x1, y1, x2, y2)
-                print(centroid)
-                cntx, cnty = centroid
-                # plot hasil centroid
-                pcent = pr.process_image.plot_line(frame, centroid)
-                 
-                if centroid is not None:
-                    # hitung jarak (pixel)
-                    dist_px = pr.process_image.dist_pixel(300, 240,
-                                                            cntx, cnty)
-                    print('ini dist pixel ' + str(dist_px))
-
-                    # hitung jarak real
-                    dist_real = pr.process_image.dist_real(dist_px)
-                    print('ini dist real ' + str(dist_real))
-
-                    # penentuan angle
-                    ang = pr.process_image.penentuan_derajat(cntx, cnty)
-                    print(ang)
-                    ang = str(ang[3])
-
-                    # penentuan arah gerak
-                    vel = vl.velo.kejar(float(ang), float(dist_real))
-                    print('Ini Status ----> '+str(vel[0]))
-
-                    # kinematika motor
-                    kin = vl.velo.inv_motor(vel[0], vel[1])
-                    print('Power Motor '+str(kin))
-
-                    print(fps)
-
-                    # Use putText() method for inserting text on video
-                    pr.process_image.text_display_det(frame, ang, dist_real, vel[0], kin, fps)
+                if classes == [1.0, 0.0]:
+                    # hitung centroid bola
+                    x1b, y1b, x2b, y2b = boxes[1]
+                    cent_bola = pr.process_image.find_centroid(x1b, y1b, x2b, y2b)
                     
-                    tws.x = kin[0]
-                    tws.y = kin[1]
-                    tws.z = kin[2]
-
-                    vel_sim.movement = 3
-                    vel_sim.wheel.v_right = tws.x
-                    vel_sim.wheel.v_left = tws.y
-                    vel_sim.wheel.v_back = tws.z
+                    # hitung centroid kotak
+                    x1k, y1k, x2k, y2k = boxes[0]
+                    cent_kotak = pr.process_image.find_centroid(x1k, y1k, x2k, y2k)
+                    # plot hasil centroid
+                    pr.process_image.plot_line(frame, cent_bola)
+                    pr.process_image.plot_line(frame, cent_kotak)
+                    print(str(cent_bola)+str(cent_kotak))
+                    cbx, cby = cent_bola
+                    ckx, cky = cent_kotak
+                    # lempar ke message Point32 hasil centroid
+                    mes.x_bola = cbx
+                    mes.y_bola = cby
+                    mes.x_kotak = ckx
+                    mes.y_kotak = cky
+                elif classes == [0.0, 1.0]:
+                    # hitung centroid bola
+                    x1b, y1b, x2b, y2b = boxes[0]
+                    cent_bola = pr.process_image.find_centroid(x1b, y1b, x2b, y2b)
                     
-                    # tws.linear = kin
-            
-            else:
-                tws.x = 0
-                tws.y = 0
-                tws.z = 0
+                    # hitung centroid kotak
+                    x1k, y1k, x2k, y2k = boxes[1]
+                    cent_kotak = pr.process_image.find_centroid(x1k, y1k, x2k, y2k)
+                    # plot hasil centroid
+                    pr.process_image.plot_line(frame, cent_bola)
+                    pr.process_image.plot_line(frame, cent_kotak)
+                    print(str(cent_bola)+str(cent_kotak))
+                    cbx, cby = cent_bola
+                    ckx, cky = cent_kotak
+                    # lempar ke message Point32 hasil centroid bola
+                    mes.x_bola = cbx
+                    mes.y_bola = cby
+                    mes.x_kotak = ckx
+                    mes.y_kotak = cky
 
-                vel_sim.wheel.v_right = 0
-                vel_sim.wheel.v_left = 0
-                vel_sim.wheel.v_back = 0
- 
-                pr.process_image.text_display_na(frame)                
+                elif classes == [0.0]:
+                    # hitung centroid bola
+                    x1b, y1b, x2b, y2b = boxes[0]
+                    cent_bola = pr.process_image.find_centroid(x1b, y1b, x2b, y2b)
+                    
+                    # plot hasil centroid
+                    pr.process_image.plot_line(frame, cent_bola)
+                    print(str(cent_bola))
+                    cbx, cby = cent_bola
+                    # lempar ke message Point32 hasil centroid bola
+                    mes.x_bola = cbx
+                    mes.y_bola = cby
+                    mes.x_kotak = 0.0
+                    mes.y_kotak = 0.0
+
+                else:
+                    mes.x_bola = 0.0
+                    mes.y_bola = 0.0
+                    mes.x_kotak = 0.0
+                    mes.y_kotak = 0.0
+            # hitung jarak (pixel)
+            dist_px = pr.process_image.dist_pixel(300, 240, cbx, cby)
+            print('\n' + 'ini dist pixel bola ' + str(dist_px))
+            # hitung jarak (real)
+            dist_real = pr.process_image.dist_real(dist_px)
+            print('\n' + 'ini dist pixel real ' + str(dist_real))
+
 
             # Display the annotated frame
             cv2.imshow("YOLOv8 Inference", frame)
-
             # Break the loop if 'q' is pressed
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
+            # publish message
+            pub.publish(mes)
 
-            # publish and convert img to ros format
-            # pub.publish(br.cv2_to_imgmsg(frame, 'bgr8'))
-            pub_sim.publish(vel_sim)
-            pub.publish(tws)
         rate.sleep()
         
 

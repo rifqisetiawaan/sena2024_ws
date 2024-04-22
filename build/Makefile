@@ -609,6 +609,162 @@ roscpp_generate_messages_eus/fast:
 	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
 
+#=============================================================================
+# Target rules for targets named _camera_yolo_generate_messages_check_deps_yoloPos
+
+# Build rule for target.
+_camera_yolo_generate_messages_check_deps_yoloPos: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _camera_yolo_generate_messages_check_deps_yoloPos
+.PHONY : _camera_yolo_generate_messages_check_deps_yoloPos
+
+# fast build rule for target.
+_camera_yolo_generate_messages_check_deps_yoloPos/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/build.make camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/build
+.PHONY : _camera_yolo_generate_messages_check_deps_yoloPos/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_generate_messages_cpp
+
+# Build rule for target.
+camera_yolo_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_generate_messages_cpp
+.PHONY : camera_yolo_generate_messages_cpp
+
+# fast build rule for target.
+camera_yolo_generate_messages_cpp/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/build
+.PHONY : camera_yolo_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_generate_messages_eus
+
+# Build rule for target.
+camera_yolo_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_generate_messages_eus
+.PHONY : camera_yolo_generate_messages_eus
+
+# fast build rule for target.
+camera_yolo_generate_messages_eus/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/build
+.PHONY : camera_yolo_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_gencpp
+
+# Build rule for target.
+camera_yolo_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_gencpp
+.PHONY : camera_yolo_gencpp
+
+# fast build rule for target.
+camera_yolo_gencpp/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_gencpp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_gencpp.dir/build
+.PHONY : camera_yolo_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_geneus
+
+# Build rule for target.
+camera_yolo_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_geneus
+.PHONY : camera_yolo_geneus
+
+# fast build rule for target.
+camera_yolo_geneus/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_geneus.dir/build.make camera_yolo/CMakeFiles/camera_yolo_geneus.dir/build
+.PHONY : camera_yolo_geneus/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_generate_messages
+
+# Build rule for target.
+camera_yolo_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_generate_messages
+.PHONY : camera_yolo_generate_messages
+
+# fast build rule for target.
+camera_yolo_generate_messages/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages.dir/build
+.PHONY : camera_yolo_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_generate_messages_lisp
+
+# Build rule for target.
+camera_yolo_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_generate_messages_lisp
+.PHONY : camera_yolo_generate_messages_lisp
+
+# fast build rule for target.
+camera_yolo_generate_messages_lisp/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/build
+.PHONY : camera_yolo_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_genpy
+
+# Build rule for target.
+camera_yolo_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_genpy
+.PHONY : camera_yolo_genpy
+
+# fast build rule for target.
+camera_yolo_genpy/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_genpy.dir/build.make camera_yolo/CMakeFiles/camera_yolo_genpy.dir/build
+.PHONY : camera_yolo_genpy/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_genlisp
+
+# Build rule for target.
+camera_yolo_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_genlisp
+.PHONY : camera_yolo_genlisp
+
+# fast build rule for target.
+camera_yolo_genlisp/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_genlisp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_genlisp.dir/build
+.PHONY : camera_yolo_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_generate_messages_nodejs
+
+# Build rule for target.
+camera_yolo_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_generate_messages_nodejs
+.PHONY : camera_yolo_generate_messages_nodejs
+
+# fast build rule for target.
+camera_yolo_generate_messages_nodejs/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/build
+.PHONY : camera_yolo_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_gennodejs
+
+# Build rule for target.
+camera_yolo_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_gennodejs
+.PHONY : camera_yolo_gennodejs
+
+# fast build rule for target.
+camera_yolo_gennodejs/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_gennodejs.dir/build.make camera_yolo/CMakeFiles/camera_yolo_gennodejs.dir/build
+.PHONY : camera_yolo_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named camera_yolo_generate_messages_py
+
+# Build rule for target.
+camera_yolo_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_yolo_generate_messages_py
+.PHONY : camera_yolo_generate_messages_py
+
+# fast build rule for target.
+camera_yolo_generate_messages_py/fast:
+	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/build
+.PHONY : camera_yolo_generate_messages_py/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -656,6 +812,18 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
+	@echo "... _camera_yolo_generate_messages_check_deps_yoloPos"
+	@echo "... camera_yolo_generate_messages_cpp"
+	@echo "... camera_yolo_generate_messages_eus"
+	@echo "... camera_yolo_gencpp"
+	@echo "... camera_yolo_geneus"
+	@echo "... camera_yolo_generate_messages"
+	@echo "... camera_yolo_generate_messages_lisp"
+	@echo "... camera_yolo_genpy"
+	@echo "... camera_yolo_genlisp"
+	@echo "... camera_yolo_generate_messages_nodejs"
+	@echo "... camera_yolo_gennodejs"
+	@echo "... camera_yolo_generate_messages_py"
 .PHONY : help
 
 
