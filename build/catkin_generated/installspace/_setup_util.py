@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/home/krsbi/apf_ws/devel;/home/krsbi/OpenBase/ROS/devel;/home/krsbi/turtle_ws/devel;/home/krsbi/sena2024_ws/devel;/home/krsbi/catkin_ws/devel;/opt/ros/noetic'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/krsbi/omni_robot_ws/devel;/home/krsbi/apf_ws/devel;/home/krsbi/OpenBase/ROS/devel;/home/krsbi/turtle_ws/devel;/home/krsbi/sena2024_ws/devel;/home/krsbi/catkin_ws/devel;/opt/ros/noetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

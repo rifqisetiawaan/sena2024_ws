@@ -3,7 +3,7 @@
 # cam stream program, pub ke yolo_dist
 import rospy
 import numpy as np
-from geometry_msgs.msg import Point32
+from geometry_msgs.msg import Pose
 from open_base.msg import Movement
 import math
 import cv2
@@ -13,7 +13,7 @@ from prcs_image.command_vel import velo as vl
 from ultralytics import YOLO
 
 def publish_message():
-    pub = rospy.Publisher('video_topic', Point32, queue_size=10)
+    pub = rospy.Publisher('ballPos_topic', Pose, queue_size=10)
     pub_sim = rospy.Publisher('open_base/command', Movement, queue_size=100)
     rospy.init_node('webcam_stream', anonymous=False)
     
@@ -22,7 +22,7 @@ def publish_message():
     cap = cv2.VideoCapture(0)
     fps = cap.get(cv2.CAP_PROP_FPS)
     model = YOLO('/home/krsbi/sena2024_ws/src/camera_yolo/src/script/best.pt')
-    tws = Point32()
+    tws = Pose()
     vel_sim = Movement()
     while not rospy.is_shutdown():
         # capture frame by frame
@@ -54,7 +54,7 @@ def publish_message():
                 detected_class = cls
                 name = names[int(cls)]
 
-            if classes == [1.0, 0.0] or classes == [0.0, 1.0]:
+            if classes == [1.0, 0.0] or classes == [0.0, 1.0] or classes == [0.0]:
                 x1, y1, x2, y2 = boxes[0]
                 # hitung centroid
                 centroid = pr.process_image.find_centroid(x1, y1, x2, y2)
@@ -91,21 +91,21 @@ def publish_message():
                     # Use putText() method for inserting text on video
                     pr.process_image.text_display_det(frame, ang, dist_real, vel[0], kin, fps)
                     
-                    tws.x = kin[0]
-                    tws.y = kin[1]
-                    tws.z = kin[2]
+                    tws.position.x = kin[0]
+                    tws.position.y = kin[1]
+                    tws.position.z = kin[2]
 
                     vel_sim.movement = 3
-                    vel_sim.wheel.v_right = tws.x
-                    vel_sim.wheel.v_left = tws.y
-                    vel_sim.wheel.v_back = tws.z
+                    vel_sim.wheel.v_right = tws.position.x
+                    vel_sim.wheel.v_left = tws.position.y
+                    vel_sim.wheel.v_back = tws.position.z
                     
                     # tws.linear = kin
             
             else:
-                tws.x = 0
-                tws.y = 0
-                tws.z = 0
+                tws.position.x = 0
+                tws.position.y = 0
+                tws.position.z = 0
 
                 vel_sim.wheel.v_right = 0
                 vel_sim.wheel.v_left = 0

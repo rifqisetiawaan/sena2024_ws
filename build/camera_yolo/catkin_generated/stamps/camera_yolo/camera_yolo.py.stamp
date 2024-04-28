@@ -30,7 +30,7 @@ def publish_message():
         if ret==True:
             # rospy.loginfo('publishing video frame')
             
-            results = model(frame)
+            results = model(frame, conf=0.8)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -115,14 +115,14 @@ def publish_message():
                     mes.y_bola = 0.0
                     mes.x_kotak = 0.0
                     mes.y_kotak = 0.0
-            
+
+
             # Display the annotated frame
             cv2.imshow("YOLOv8 Inference", frame)
-            # publish message
-            pub.publish(mes)
             # Break the loop if 'q' is pressed
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
+            # publish message
             pub.publish(mes)
 
         rate.sleep()

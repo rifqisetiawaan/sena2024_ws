@@ -30,7 +30,7 @@ def publish_message():
         if ret==True:
             # rospy.loginfo('publishing video frame')
             
-            results = model(frame)
+            results = model(frame, conf=0.8)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -115,12 +115,6 @@ def publish_message():
                     mes.y_bola = 0.0
                     mes.x_kotak = 0.0
                     mes.y_kotak = 0.0
-            # hitung jarak (pixel)
-            dist_px = pr.process_image.dist_pixel(300, 240, cbx, cby)
-            print('\n' + 'ini dist pixel bola ' + str(dist_px))
-            # hitung jarak (real)
-            dist_real = pr.process_image.dist_real(dist_px)
-            print('\n' + 'ini dist pixel real ' + str(dist_real))
 
 
             # Display the annotated frame
