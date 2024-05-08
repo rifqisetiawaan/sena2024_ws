@@ -137,3 +137,10 @@
 /home/krsbi/sena2024_ws/build/obs_tf/CMakeFiles/rebuild_cache.dir
 /home/krsbi/sena2024_ws/build/obs_tf/CMakeFiles/edit_cache.dir
 /home/krsbi/sena2024_ws/build/obs_tf/CMakeFiles/test.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/install/strip.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/install/local.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/install.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/list_install_components.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/rebuild_cache.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/edit_cache.dir
+/home/krsbi/sena2024_ws/build/robot_tf_pkg/CMakeFiles/test.dir

@@ -8,4 +8,7 @@
     <node name="ball_tf_broadcaster" pkg="ball_tf" type="ball_tf_broadcaster.py" respawn="false" output="screen" >
         <param name="ball" type="string" value="ball" />
     </node>
+    <node name="obs_tf_broadcaster" pkg="obs_tf" type="obs_tf_broadcaster.py" respawn="false" output="screen" >
+        <param name="obstacle" type="string" value="obstacle" />
+    </node>
 </launch>

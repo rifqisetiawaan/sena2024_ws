@@ -24,6 +24,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin_generated/order_packages.cmake"
   "obs_tf/catkin_generated/ordered_paths.cmake"
   "obs_tf/catkin_generated/package.cmake"
+  "robot_tf_pkg/catkin_generated/ordered_paths.cmake"
+  "robot_tf_pkg/catkin_generated/package.cmake"
   "trial_simulation/catkin_generated/ordered_paths.cmake"
   "trial_simulation/catkin_generated/package.cmake"
   "/home/krsbi/sena2024_ws/devel/share/camera_yolo/cmake/camera_yolo-msg-paths.cmake"
@@ -38,6 +40,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/krsbi/sena2024_ws/src/camera_yolo/src/script/camera_yolo.py"
   "/home/krsbi/sena2024_ws/src/obs_tf/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/obs_tf/package.xml"
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/CMakeLists.txt"
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/package.xml"
   "/home/krsbi/sena2024_ws/src/trial_simulation/CMakeLists.txt"
   "/home/krsbi/sena2024_ws/src/trial_simulation/package.xml"
   "/opt/ros/noetic/share/actionlib/cmake/actionlib-msg-extras.cmake"
@@ -285,6 +289,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "trial_simulation/CMakeFiles/CMakeDirectoryInformation.cmake"
   "ball_tf/CMakeFiles/CMakeDirectoryInformation.cmake"
   "obs_tf/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "robot_tf_pkg/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

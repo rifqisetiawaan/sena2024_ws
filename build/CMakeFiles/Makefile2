@@ -59,6 +59,7 @@ all: camera_yolo/all
 all: trial_simulation/all
 all: ball_tf/all
 all: obs_tf/all
+all: robot_tf_pkg/all
 
 .PHONY : all
 
@@ -69,6 +70,7 @@ preinstall: camera_yolo/preinstall
 preinstall: trial_simulation/preinstall
 preinstall: ball_tf/preinstall
 preinstall: obs_tf/preinstall
+preinstall: robot_tf_pkg/preinstall
 
 .PHONY : preinstall
 
@@ -84,6 +86,7 @@ clean: camera_yolo/clean
 clean: trial_simulation/clean
 clean: ball_tf/clean
 clean: obs_tf/clean
+clean: robot_tf_pkg/clean
 
 .PHONY : clean
 
@@ -279,6 +282,24 @@ obs_tf/preinstall:
 obs_tf/clean:
 
 .PHONY : obs_tf/clean
+
+#=============================================================================
+# Directory level rules for directory robot_tf_pkg
+
+# Recursive "all" directory target.
+robot_tf_pkg/all:
+
+.PHONY : robot_tf_pkg/all
+
+# Recursive "preinstall" directory target.
+robot_tf_pkg/preinstall:
+
+.PHONY : robot_tf_pkg/preinstall
+
+# Recursive "clean" directory target.
+robot_tf_pkg/clean:
+
+.PHONY : robot_tf_pkg/clean
 
 #=============================================================================
 # Directory level rules for directory trial_simulation

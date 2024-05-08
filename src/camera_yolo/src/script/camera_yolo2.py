@@ -28,6 +28,10 @@ def publish_message():
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
+        # poseBall.position.x = 400
+        # poseBall.position.y = 180
+        # poseObs.position.x = 480
+        # poseObs.position.y = 126
 
         if ret==True:
             # rospy.loginfo('publishing video frame')

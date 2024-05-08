@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/krsbi/OpenBase/ROS/devel/include/**",
+        "/home/krsbi/sena2024_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/krsbi/apf_ws/src/apf/include/**",
+        "/home/krsbi/sena2024_ws/src/ball_tf/include/**",
+        "/home/krsbi/catkin_ws/src/beginner_tutorials/include/**",
+        "/home/krsbi/sena2024_ws/src/cam_stream/include/**",
+        "/home/krsbi/sena2024_ws/src/camera_yolo/include/**",
+        "/home/krsbi/turtle_ws/src/learning_tf/include/**",
+        "/home/krsbi/catkin_ws/src/learning_tf2/include/**",
+        "/home/krsbi/sena2024_ws/src/obs_tf/include/**",
+        "/home/krsbi/sena2024_ws/src/robot_tf_pkg/include/**",
+        "/home/krsbi/sena2024_ws/src/trial_simulation/include/**",
+        "/home/krsbi/turtle_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/krsbi/turtle_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/krsbi/catkin_ws/src/using_markers/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
