@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/krsbi/OpenBase/ROS/devel/lib/python3/dist-packages",
+        "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/krsbi/OpenBase/ROS/devel/lib/python3/dist-packages",
+        "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

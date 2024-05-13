@@ -1,10 +1,17 @@
 <launch>
-    <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
-    <param name="port"              type="string"               value="/dev/ttyUSB0"/>
-    <param name="baud"              type="int"                  value="57600"/>
-    </node>
+  <node name="camera_yolo1" pkg="camera_yolo" type="camera_yolo2.py" output="screen" />
 
-    <node name="robot_tf2_broadcaster" pkg="robot_tf_pkg" type="robot_tf2_broadcaster.py" output="screen" >
-        <param name="robot" type="string" value="robot" />
-      </node>
+  <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
+    <param name="port" type="string" value="/dev/ttyUSB0" />
+    <param name="baud" type="int" value="57600" />
+  </node>
+  <node name="ball_tf2_broadcaster" pkg="robot_tf_pkg" type="ball_tf2_broadcaster.py" output="screen">
+    <param name="balls" type="string" value="balls" />
+  </node>
+  <node name="odom" pkg="odometry" type="odom.py" output="screen"/>
+
+  <node name="robot_tf2_broadcaster" pkg="robot_tf_pkg" type="robot_tf2_broadcaster.py" output="screen">
+    <param name="robot" type="string" value="robot" />
+  </node>
+  <node type="rviz" name="rviz" pkg="rviz" respawn="false" args="-d /home/krsbi/sena2024_ws/src/robot_tf_pkg/rviz/sena_rviz.rviz" output="screen"/>
 </launch>

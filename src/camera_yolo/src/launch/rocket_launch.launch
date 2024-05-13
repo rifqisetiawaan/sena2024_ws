@@ -11,4 +11,8 @@
     <node name="obs_tf_broadcaster" pkg="obs_tf" type="obs_tf_broadcaster.py" respawn="false" output="screen" >
         <param name="obstacle" type="string" value="obstacle" />
     </node>
+    <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
+        <param name="port"              type="string"               value="/dev/ttyUSB0"/>
+        <param name="baud"              type="int"                  value="57600"/>
+        </node>
 </launch>

@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   tf2
   tf2_ros
   turtlesim
+  std_msgs
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -162,7 +164,8 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 # catkin_install_python(PROGRAMS
-#   scripts/my_python_script
+#   nodes/ball_tf2_broadcaster
+#   nodes/robot_tf2_broadcaster
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 

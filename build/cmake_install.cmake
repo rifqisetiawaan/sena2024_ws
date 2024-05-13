@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/krsbi/sena2024_ws/build/gtest/cmake_install.cmake")
+  include("/home/krsbi/sena2024_ws/build/odometry/cmake_install.cmake")
   include("/home/krsbi/sena2024_ws/build/cam_stream/cmake_install.cmake")
   include("/home/krsbi/sena2024_ws/build/camera_yolo/cmake_install.cmake")
   include("/home/krsbi/sena2024_ws/build/trial_simulation/cmake_install.cmake")

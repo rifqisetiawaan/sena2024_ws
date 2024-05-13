@@ -117,8 +117,8 @@ def publish_message():
                     poseObs.position.y = 0.0
 
                 else:
-                    poseBall.position.x = 0.0
-                    poseBall.position.y = 0.0
+                    poseBall.position.x = 0
+                    poseBall.position.y = 0
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
 

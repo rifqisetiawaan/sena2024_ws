@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/krsbi/sena2024_ws/build
 
 # The main recursive "all" target.
 all: gtest/all
+all: odometry/all
 all: cam_stream/all
 all: camera_yolo/all
 all: trial_simulation/all
@@ -65,6 +66,7 @@ all: robot_tf_pkg/all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: odometry/preinstall
 preinstall: cam_stream/preinstall
 preinstall: camera_yolo/preinstall
 preinstall: trial_simulation/preinstall
@@ -81,6 +83,7 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: odometry/clean
 clean: cam_stream/clean
 clean: camera_yolo/clean
 clean: trial_simulation/clean
@@ -151,31 +154,16 @@ cam_stream/preinstall:
 .PHONY : cam_stream/preinstall
 
 # Recursive "clean" directory target.
-cam_stream/clean: cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
 cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-cam_stream/clean: cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+cam_stream/clean: cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 .PHONY : cam_stream/clean
 
@@ -282,6 +270,38 @@ obs_tf/preinstall:
 obs_tf/clean:
 
 .PHONY : obs_tf/clean
+
+#=============================================================================
+# Directory level rules for directory odometry
+
+# Recursive "all" directory target.
+odometry/all:
+
+.PHONY : odometry/all
+
+# Recursive "preinstall" directory target.
+odometry/preinstall:
+
+.PHONY : odometry/preinstall
+
+# Recursive "clean" directory target.
+odometry/clean: odometry/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+odometry/clean: odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+odometry/clean: odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+odometry/clean: odometry/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+odometry/clean: odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+odometry/clean: odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+odometry/clean: odometry/CMakeFiles/roscpp_generate_messages_py.dir/clean
+odometry/clean: odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
+odometry/clean: odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+odometry/clean: odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+odometry/clean: odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+odometry/clean: odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+odometry/clean: odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+odometry/clean: odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+odometry/clean: odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+
+.PHONY : odometry/clean
 
 #=============================================================================
 # Directory level rules for directory robot_tf_pkg
@@ -564,436 +584,409 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir
+# Target rules for target odometry/CMakeFiles/std_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+odometry/CMakeFiles/std_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_py.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_py.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+odometry/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_cpp: cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+std_msgs_generate_messages_py: odometry/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
-.PHONY : std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_py
 
 # clean rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+odometry/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_py.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+# Target rules for target odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_nodejs"
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_nodejs: cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+std_msgs_generate_messages_nodejs: odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# clean rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_nodejs
 
 # clean rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir
+# Target rules for target odometry/CMakeFiles/roscpp_generate_messages_cpp.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_lisp"
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# clean rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# clean rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# clean rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# clean rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# clean rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# clean rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# clean rule for target.
-cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_eus"
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# clean rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# clean rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir
-
-# All Build rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_cpp"
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
+odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_cpp: cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+roscpp_generate_messages_cpp: odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 .PHONY : roscpp_generate_messages_cpp
 
 # clean rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir
+# Target rules for target odometry/CMakeFiles/roscpp_generate_messages_eus.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+odometry/CMakeFiles/roscpp_generate_messages_eus.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_eus.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_eus.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_eus.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+odometry/CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/roscpp_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_eus: cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+roscpp_generate_messages_eus: odometry/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
 
 # clean rule for target.
-cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+odometry/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_eus.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/roscpp_generate_messages_py.dir
+# Target rules for target odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_py"
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/all
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_nodejs"
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_py: cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/rule
+rosgraph_msgs_generate_messages_nodejs: odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : roscpp_generate_messages_py
+.PHONY : rosgraph_msgs_generate_messages_nodejs
 
 # clean rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/clean
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_py.dir/clean
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir
+# Target rules for target odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_lisp"
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_lisp: cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+std_msgs_generate_messages_lisp: odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : std_msgs_generate_messages_lisp
 
 # clean rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/roscpp_generate_messages_py.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/roscpp_generate_messages_py.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_py.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_py.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_py.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_py"
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/roscpp_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_py: odometry/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+.PHONY : roscpp_generate_messages_py
+
+# clean rule for target.
+odometry/CMakeFiles/roscpp_generate_messages_py.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_py.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_py.dir/clean
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/std_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_eus"
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_eus: odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+.PHONY : std_msgs_generate_messages_eus
+
+# clean rule for target.
+odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# clean rule for target.
+odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# clean rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_cpp: odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : std_msgs_generate_messages_cpp
+
+# clean rule for target.
+odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+.PHONY : odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_eus: odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# clean rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_lisp"
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# clean rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/roscpp_generate_messages_lisp.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_lisp"
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# clean rule for target.
+odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+.PHONY : odometry/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_py: odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_py
+
+# clean rule for target.
+odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+.PHONY : odometry/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
 # Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
@@ -1023,31 +1016,31 @@ cam_stream/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
 .PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir
+# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/all
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_py: cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+sensor_msgs_generate_messages_eus: cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
 
-.PHONY : std_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_eus
 
 # clean rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
 # Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_eus.dir
@@ -1077,166 +1070,193 @@ cam_stream/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
 .PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir
+# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_nodejs"
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_nodejs: cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+geometry_msgs_generate_messages_lisp: cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : std_msgs_generate_messages_nodejs
+.PHONY : geometry_msgs_generate_messages_lisp
 
 # clean rule for target.
-cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
-.PHONY : cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
+# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_eus: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+sensor_msgs_generate_messages_lisp: cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_eus
+.PHONY : sensor_msgs_generate_messages_lisp
 
 # clean rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
+# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_lisp"
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+sensor_msgs_generate_messages_nodejs: cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_lisp
+.PHONY : sensor_msgs_generate_messages_nodejs
 
 # clean rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
+# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_nodejs"
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+geometry_msgs_generate_messages_py: cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_nodejs
+.PHONY : geometry_msgs_generate_messages_py
 
 # clean rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+# Target rules for target cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+sensor_msgs_generate_messages_py: cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : sensor_msgs_generate_messages_py
 
 # clean rule for target.
-cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-.PHONY : cam_stream/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir
+# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/all:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/depend
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/all
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_eus: cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+geometry_msgs_generate_messages_cpp: cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : roscpp_generate_messages_eus
+.PHONY : geometry_msgs_generate_messages_cpp
 
 # clean rule for target.
-cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
-	$(MAKE) -f cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/build.make cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/clean
-.PHONY : cam_stream/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krsbi/sena2024_ws/build/CMakeFiles 0
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# clean rule for target.
+cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+.PHONY : cam_stream/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
 # Target rules for target camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir
@@ -1269,7 +1289,7 @@ camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/cle
 # Target rules for target camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir
 
 # All Build rule for target.
-camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/all: cam_stream/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/all: odometry/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/all: cam_stream/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/all: camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/all
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/depend
@@ -1298,7 +1318,7 @@ camera_yolo/CMakeFiles/camera_yolo_generate_messages_cpp.dir/clean:
 # Target rules for target camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir
 
 # All Build rule for target.
-camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/all: cam_stream/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/all: odometry/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/all: cam_stream/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/all: camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/all
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_eus.dir/depend
@@ -1412,8 +1432,8 @@ camera_yolo/CMakeFiles/camera_yolo_generate_messages.dir/clean:
 # Target rules for target camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir
 
 # All Build rule for target.
+camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/all: odometry/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/all: cam_stream/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/all: cam_stream/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/all: camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/all
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/depend
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_lisp.dir/build
@@ -1495,8 +1515,8 @@ camera_yolo/CMakeFiles/camera_yolo_genlisp.dir/clean:
 # Target rules for target camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir
 
 # All Build rule for target.
+camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/all: odometry/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/all: cam_stream/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/all: cam_stream/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/all: camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/all
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/depend
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_nodejs.dir/build
@@ -1551,8 +1571,8 @@ camera_yolo/CMakeFiles/camera_yolo_gennodejs.dir/clean:
 # Target rules for target camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir
 
 # All Build rule for target.
+camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/all: odometry/CMakeFiles/std_msgs_generate_messages_py.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/all: cam_stream/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/all: cam_stream/CMakeFiles/std_msgs_generate_messages_py.dir/all
 camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/all: camera_yolo/CMakeFiles/_camera_yolo_generate_messages_check_deps_yoloPos.dir/all
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/depend
 	$(MAKE) -f camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/build.make camera_yolo/CMakeFiles/camera_yolo_generate_messages_py.dir/build

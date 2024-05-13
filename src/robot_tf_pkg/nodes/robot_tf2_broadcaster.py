@@ -15,7 +15,7 @@ def handle_turtle_pose(msg, turtlename):
     t = geometry_msgs.msg.TransformStamped()
 
     t.header.stamp = rospy.Time.now()
-    t.header.frame_id = "world"
+    t.header.frame_id = "map"
     t.child_frame_id = turtlename
     t.transform.translation.x = msg.data
     t.transform.translation.y = msg.data

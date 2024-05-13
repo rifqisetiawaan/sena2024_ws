@@ -430,6 +430,9 @@ cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
 //The directory containing a CMake configuration file for cv_bridge.
 cv_bridge_DIR:PATH=/opt/ros/noetic/share/cv_bridge/cmake
 
+//The directory containing a CMake configuration file for dynamic_reconfigure.
+dynamic_reconfigure_DIR:PATH=/opt/ros/noetic/share/dynamic_reconfigure/cmake
+
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/noetic/share/gencpp/cmake
 
@@ -512,20 +515,38 @@ message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for move_base.
+move_base_DIR:PATH=/opt/ros/noetic/share/move_base/cmake
+
+//The directory containing a CMake configuration file for move_base_msgs.
+move_base_msgs_DIR:PATH=/opt/ros/noetic/share/move_base_msgs/cmake
+
+//The directory containing a CMake configuration file for my_odom_configuration_dep.
+my_odom_configuration_dep_DIR:PATH=my_odom_configuration_dep_DIR-NOTFOUND
+
+//Value Computed by CMake
+my_robot_name_2dnav_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/my_robot_name_2dnav
+
+//Value Computed by CMake
+my_robot_name_2dnav_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/my_robot_name_2dnav
+
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
+
 //Value Computed by CMake
 obs_tf_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/obs_tf
 
 //Value Computed by CMake
 obs_tf_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/obs_tf
 
+//Value Computed by CMake
+odometry_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/odometry
+
+//Value Computed by CMake
+odometry_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/odometry
+
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
-
-//Value Computed by CMake
-prcs_image_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/prcs_image
-
-//Value Computed by CMake
-prcs_image_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/prcs_image
 
 //Value Computed by CMake
 robot_tf_pkg_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/robot_tf_pkg
@@ -598,18 +619,6 @@ turtlesim_DIR:PATH=/opt/ros/noetic/share/turtlesim/cmake
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
-
-//Value Computed by CMake
-yolo_cam_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/yolo_cam
-
-//Value Computed by CMake
-yolo_cam_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/yolo_cam
-
-//Value Computed by CMake
-yolo_proc_BINARY_DIR:STATIC=/home/krsbi/sena2024_ws/build/yolo_proc
-
-//Value Computed by CMake
-yolo_proc_SOURCE_DIR:STATIC=/home/krsbi/sena2024_ws/src/yolo_proc
 
 
 ########################
@@ -759,7 +768,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

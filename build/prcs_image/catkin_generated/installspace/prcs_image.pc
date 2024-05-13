@@ -1,8 +1,0 @@
-prefix=/home/krsbi/sena2024_ws/install
-
-Name: prcs_image
-Description: Description of prcs_image
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_generation roscpp rospy std_msgs message_runtime
