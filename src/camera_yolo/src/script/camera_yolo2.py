@@ -28,10 +28,10 @@ def publish_message():
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
-        # poseBall.position.x = 400
-        # poseBall.position.y = 180
-        # poseObs.position.x = 480
-        # poseObs.position.y = 126
+        poseBall.position.x = 0.0
+        poseBall.position.y = 0.0
+        poseObs.position.x = 0.0
+        poseObs.position.y = 0.0
 
         if ret==True:
             # rospy.loginfo('publishing video frame')
@@ -44,8 +44,10 @@ def publish_message():
             names = results[0].names
             confidences = max([results[0].boxes.conf.tolist()])
             # plot titik tengah kamera
-            cv2.circle(frame, (300, 240), 
+            cv2.circle(frame, (335, 240), 
                     radius=30, color=(0, 0, 255), thickness=1)
+            # cv2.circle(frame, (340, 240), 
+            #         radius=30, color=(0, 0, 255), thickness=1)
 
             # Iterate through the results
             for box, cls, conf in zip(boxes, classes, confidences):
@@ -111,14 +113,14 @@ def publish_message():
                     print(str(cent_bola))
                     cbx, cby = cent_bola
                     # lempar ke message Point32 hasil centroid bola
-                    poseBall.position.x = cbx
-                    poseBall.position.y = cby
+                    poseBall.position.x = cbx-335
+                    poseBall.position.y = cby-240
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
 
                 else:
-                    poseBall.position.x = 0
-                    poseBall.position.y = 0
+                    poseBall.position.x = 0.0
+                    poseBall.position.y = 0.0
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
 
