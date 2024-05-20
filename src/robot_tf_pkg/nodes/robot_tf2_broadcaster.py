@@ -17,11 +17,15 @@ def handle_turtle_pose(msg, turtlename):
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
 
-    # kalkulasi encoder 3 roda
+    # konversi pulsa ke mm
+    dist1 = 2*3.14*50*(msg.enc1/135)
+    dist2 = 2*3.14*50*(msg.enc2/135)
+    dist3 = 2*3.14*50*(msg.enc3/135)
 
-    vy = (msg.enc1*(math.cos(30)))-(msg.enc2*(math.cos(30)))
-    vx = msg.enc3-(msg.enc1*(math.sin(30)))-(msg.enc2*(math.sin(30)))
-    vo = (msg.enc1/215)+(msg.enc2/215)+(msg.enc3/215)
+    # kalkulasi encoder 3 roda
+    vy = (dist1*(math.cos(30)))-(dist2*(math.cos(30)))
+    vx = dist3-(dist1*(math.sin(30)))-(dist2*(math.sin(30)))
+    vo = (dist1/215)+(dist2/215)+(dist3/215)
 
     # coord kartesian
 
@@ -33,11 +37,13 @@ def handle_turtle_pose(msg, turtlename):
     t.header.stamp = rospy.Time.now()
     t.header.frame_id = "map"
     t.child_frame_id = turtlename
-    t.transform.translation.x = xpos
-    t.transform.translation.y = ypos
+    # t.transform.translation.x = xpos/1000
+    # t.transform.translation.y = ypos/1000
+    t.transform.translation.x = 1000/1000
+    t.transform.translation.y = 1000/1000
     t.transform.translation.z = 0
     # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-    q = tf_conversions.transformations.quaternion_from_euler(0, 0, theta)
+    q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
     t.transform.rotation.x = q[0]
     t.transform.rotation.y = q[1]
     t.transform.rotation.z = q[2]

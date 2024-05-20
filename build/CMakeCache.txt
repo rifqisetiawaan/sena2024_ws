@@ -504,7 +504,7 @@ gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 image_transport_DIR:PATH=/opt/ros/noetic/share/image_transport/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libmessage_filters.so
+lib:FILEPATH=/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/noetic/share/message_filters/cmake

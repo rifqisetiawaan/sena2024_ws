@@ -36,7 +36,7 @@ def publish_message():
         if ret==True:
             # rospy.loginfo('publishing video frame')
             
-            results = model(frame, conf=0.8)
+            results = model(frame, conf=0.5)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -113,8 +113,8 @@ def publish_message():
                     print(str(cent_bola))
                     cbx, cby = cent_bola
                     # lempar ke message Point32 hasil centroid bola
-                    poseBall.position.x = cbx-335
-                    poseBall.position.y = cby-240
+                    poseBall.position.x = cbx
+                    poseBall.position.y = cby
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
 

@@ -8,11 +8,11 @@
 
   <!-- ARDUINO MEGA START -->
 
-  <node name="serial_mega" pkg="rosserial_python" type="serial_node.py">
+  <!-- <node name="serial_mega" pkg="rosserial_python" type="serial_node.py">
     <param name="port" type="string" value="/dev/ttyUSB1" />
     <param name="baud" type="int" value="57600" />
-  </node>
-
+  </node> -->
+  <!-- TF BROADCAST -->
   <node name="ball_tf2_broadcaster" pkg="robot_tf_pkg" type="ball_tf2_broadcaster.py" output="screen">
     <param name="balls" type="string" value="balls" />
   </node>
@@ -21,14 +21,29 @@
     <param name="robot" type="string" value="robot" />
   </node>
 
-  <!-- <node name="odom" pkg="odometry" type="odom.py" output="screen" /> -->
+  <!-- GOAL -->
+
+  <!-- <node name="goal" pkg="robot_tf_pkg" type="ball_goal.py" output="screen" /> -->
+
+  <!-- ODOM -->
+
+  <node name="odom" pkg="odometry" type="odom.py" output="screen" />
 
   <!-- MAP -->
-  <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan3x3.yaml" />
+  <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_3226_map.yaml" />
 
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <node type="rviz" name="rviz" pkg="rviz" respawn="false"
     args="-d /home/krsbi/sena2024_ws/src/robot_tf_pkg/rviz/sena_rviz.rviz" output="screen" />
+
+  <!-- NAV STACK -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/local_costmap_params.yaml" command="load" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/global_costmap_params.yaml" command="load" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" />
+  </node>
 </launch>
