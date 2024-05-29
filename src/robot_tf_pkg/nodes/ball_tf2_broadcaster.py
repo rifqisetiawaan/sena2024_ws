@@ -15,7 +15,8 @@ import numpy as np
 
 
 def handle_ball_pose(msg, turtlename):
-    Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+    # Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+    Ballpub = rospy.Publisher('/move_base/current_goal', PoseStamped, queue_size=10)
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()

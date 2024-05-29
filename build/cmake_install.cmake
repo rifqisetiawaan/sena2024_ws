@@ -138,6 +138,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/krsbi/sena2024_ws/build/ball_tf/cmake_install.cmake")
   include("/home/krsbi/sena2024_ws/build/obs_tf/cmake_install.cmake")
   include("/home/krsbi/sena2024_ws/build/robot_tf_pkg/cmake_install.cmake")
+  include("/home/krsbi/sena2024_ws/build/planner/rrt-global-planner/cmake_install.cmake")
 
 endif()
 
