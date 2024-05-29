@@ -11,12 +11,13 @@ from robot_tf_pkg.msg import encoder
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Pose
 import math
+import time
 import numpy as np
 
 
 def handle_ball_pose(msg):
-    # Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
-    Ballpub = rospy.Publisher('/move_base/goal', PoseStamped, queue_size=10)
+    Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+    # Ballpub = rospy.Publisher('/move_base/goal', PoseStamped, queue_size=10)
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
@@ -33,16 +34,16 @@ def handle_ball_pose(msg):
         # t.transform.rotation.y = q[1]
         # t.transform.rotation.z = q[2]
         # t.transform.rotation.w = q[3]
-        posBall.header.frame_id = 'balls'
+        posBall.header.frame_id = 'map'
         posBall.header.stamp = rospy.Time.now()
         posBall.pose.position.x = 0.0
         posBall.pose.position.y = 0.0
         posBall.pose.position.z = 0.0
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-        posBall.pose.orientation.x = 0.0
-        posBall.pose.orientation.y = 0.0
-        posBall.pose.orientation.z = 0.0
-        posBall.pose.orientation.w = 0.0
+        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        posBall.pose.orientation.x = 0
+        posBall.pose.orientation.y = 0
+        posBall.pose.orientation.z = 0
+        posBall.pose.orientation.w = 1
     else:
         # t.header.stamp = rospy.Time.now()
         # t.header.frame_id = "robot"
@@ -56,24 +57,25 @@ def handle_ball_pose(msg):
         # t.transform.rotation.y = q[1]
         # t.transform.rotation.z = q[2]
         # t.transform.rotation.w = q[3]
-        posBall.header.frame_id = 'balls'
+        posBall.header.frame_id = 'map'
         posBall.header.stamp = rospy.Time.now()
         # posBall.pose.position.x = (msg.position.x)/1000
         # posBall.pose.position.y = (msg.position.y)/1000
         posBall.pose.position.x = msg.position.x/1000
         posBall.pose.position.y = msg.position.y/1000
         posBall.pose.position.z = 0.0
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-        # posBall.pose.orientation.x = 0.707
-        # posBall.pose.orientation.y = 0.0
-        # posBall.pose.orientation.z = 0.0
-        # posBall.pose.orientation.w = -0.707
-        posBall.pose.orientation.x = q[0]
-        posBall.pose.orientation.y = q[1]
-        posBall.pose.orientation.z = q[2]
-        posBall.pose.orientation.w = q[3]
+        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        posBall.pose.orientation.x = 0
+        posBall.pose.orientation.y = 0
+        posBall.pose.orientation.z = 0
+        posBall.pose.orientation.w = 1
+        # posBall.pose.orientation.x = q[0]
+        # posBall.pose.orientation.y = q[1]
+        # posBall.pose.orientation.z = q[2]
+        # posBall.pose.orientation.w = q[3]
 
     Ballpub.publish(posBall)
+    # time.sleep(5)
     # br.sendTransform(t)
     
 

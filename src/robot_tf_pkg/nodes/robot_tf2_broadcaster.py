@@ -43,11 +43,15 @@ def handle_turtle_pose(msg, turtlename):
     # t.transform.translation.y = 1000/1000
     t.transform.translation.z = 0
     # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-    q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-    t.transform.rotation.x = q[0]
-    t.transform.rotation.y = q[1]
-    t.transform.rotation.z = q[2]
-    t.transform.rotation.w = q[3]
+    q = tf_conversions.transformations.quaternion_from_euler(0, 0, vo)
+    # t.transform.rotation.x = q[0]
+    # t.transform.rotation.y = q[1]
+    # t.transform.rotation.z = q[2]
+    # t.transform.rotation.w = q[3]
+    t.transform.rotation.x = 0
+    t.transform.rotation.y = 0
+    t.transform.rotation.z = 0
+    t.transform.rotation.w = 1
 
     br.sendTransform(t)
 

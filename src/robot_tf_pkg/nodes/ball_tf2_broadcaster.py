@@ -16,27 +16,27 @@ import numpy as np
 
 def handle_ball_pose(msg, turtlename):
     # Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
-    Ballpub = rospy.Publisher('/move_base/current_goal', PoseStamped, queue_size=10)
+    # Ballpub = rospy.Publisher('/move_base/current_goal', PoseStamped, queue_size=10)
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
     if msg.position.x == 0 and msg.position.y == 0:
         t.header.stamp = rospy.Time.now()
-        t.header.frame_id = "robot"
+        t.header.frame_id = "map"
         t.child_frame_id = turtlename
         t.transform.translation.x = 0.0
         t.transform.translation.y = 0.0
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
         q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-        t.transform.rotation.x = q[0]
-        t.transform.rotation.y = q[1]
-        t.transform.rotation.z = q[2]
-        t.transform.rotation.w = q[3]
-        Ballpub.publish(posBall)
+        t.transform.rotation.x = 0
+        t.transform.rotation.y = 0
+        t.transform.rotation.z = 0
+        t.transform.rotation.w = 1
+        # Ballpub.publish(posBall)
     else:
         t.header.stamp = rospy.Time.now()
-        t.header.frame_id = "robot"
+        t.header.frame_id = "map"
         t.child_frame_id = turtlename
         # t.transform.translation.x = (msg.position.x +335)/1000
         # t.transform.translation.y = (msg.position.y +240)/1000
@@ -44,12 +44,17 @@ def handle_ball_pose(msg, turtlename):
         t.transform.translation.y = (msg.position.y)/1000
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, theta)
-        t.transform.rotation.x = q[0]
-        t.transform.rotation.y = q[1]
-        t.transform.rotation.z = q[2]
-        t.transform.rotation.w = q[3]
-        Ballpub.publish(posBall)
+        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        # t.transform.rotation.x = q[0]
+        # t.transform.rotation.y = q[1]
+        # t.transform.rotation.z = q[2]
+        # t.transform.rotation.w = q[3]
+        t.transform.rotation.x = 0
+        t.transform.rotation.y = 0
+        t.transform.rotation.z = 0
+        t.transform.rotation.w = 1
+        
+        # Ballpub.publish(posBall)
     br.sendTransform(t)
 
 def handle_robot_pose(msg):

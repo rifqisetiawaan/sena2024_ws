@@ -1,17 +1,19 @@
 global_frame: map
 robot_base_frame: robot
 transform_tolerance: 0.2
-robot_radius: 0.5
+robot_radius: 0.05
+# footprint: [[-0.31, -0.69], [-0.31, 0.25], [0.31, 0,25], [0.31, -0.69]]
+footprint: [[-0.25, -0.25], [0.25, -0.25], [0.25, 0.25], [-0.25, 0.25]]
 
-update_frequency: 5.0
+update_frequency: 0.3
 publish_frequency: 2.0
 rolling_window: false
 
 width: 53
 height: 65
-resolution: 0.05
-origin_x: 0
-origin_y: 0
+resolution: 1
+origin_x: 0.05
+origin_y: 0.05
 
 plugins:
   - {name: static, type: "costmap_2d::StaticLayer"}
@@ -19,9 +21,9 @@ plugins:
 
 static:
   unknown_cost_value: -1
-  lethal_cost_threshold: 100
+  lethal_cost_threshold: 255
   map_topic: map
 
 # inflation:
-#   inflation_radius: 1.1
-#   cost_scaling_factor: 0.2
+#   inflation_radius: 0.1
+#   cost_scaling_factor: 1
