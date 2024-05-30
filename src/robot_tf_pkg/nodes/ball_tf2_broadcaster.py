@@ -15,36 +15,54 @@ import numpy as np
 
 
 def handle_ball_pose(msg, turtlename):
-    # Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+    Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
     # Ballpub = rospy.Publisher('/move_base/current_goal', PoseStamped, queue_size=10)
+    # Ballpub = rospy.Publisher('/goal', PoseStamped, queue_size=10)
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
+    X = (xpos-320)/1000
+    Y = (ypos-210)/1000
+    # X = ((msg.position.x)/1000)
+    # Y = ((msg.position.y)/1000)
+
+    x_new = X * math.cos(math.radians(135)) - Y * math.sin(math.radians(135))
+    y_new = X * math.cos(math.radians(135)) + Y * math.sin(math.radians(135))
     if msg.position.x == 0 and msg.position.y == 0:
         t.header.stamp = rospy.Time.now()
         t.header.frame_id = "map"
         t.child_frame_id = turtlename
-        t.transform.translation.x = 0.0
-        t.transform.translation.y = 0.0
+        t.transform.translation.x = 0
+        t.transform.translation.y = 0
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
         t.transform.rotation.x = 0
         t.transform.rotation.y = 0
         t.transform.rotation.z = 0
         t.transform.rotation.w = 1
-        # Ballpub.publish(posBall)
+        # ------------
+        posBall.header.frame_id = 'map'
+        posBall.header.stamp = rospy.Time.now()
+        posBall.pose.position.x = 0.0
+        posBall.pose.position.y = 0.0
+        posBall.pose.position.z = 0.0
+        posBall.pose.orientation.x = 0
+        posBall.pose.orientation.y = 0
+        posBall.pose.orientation.z = 0
+        posBall.pose.orientation.w = 1
+        Ballpub.publish(posBall)
     else:
         t.header.stamp = rospy.Time.now()
         t.header.frame_id = "map"
         t.child_frame_id = turtlename
         # t.transform.translation.x = (msg.position.x +335)/1000
         # t.transform.translation.y = (msg.position.y +240)/1000
-        t.transform.translation.x = (msg.position.x)/1000
-        t.transform.translation.y = (msg.position.y)/1000
+        t.transform.translation.x = x_new
+        t.transform.translation.y = y_new
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
         # t.transform.rotation.x = q[0]
         # t.transform.rotation.y = q[1]
         # t.transform.rotation.z = q[2]
@@ -53,8 +71,19 @@ def handle_ball_pose(msg, turtlename):
         t.transform.rotation.y = 0
         t.transform.rotation.z = 0
         t.transform.rotation.w = 1
-        
-        # Ballpub.publish(posBall)
+        # ---------
+        posBall.header.frame_id = 'map'
+        posBall.header.stamp = rospy.Time.now()
+        posBall.pose.position.x = x_new
+        posBall.pose.position.y = y_new
+        # posBall.pose.position.x = 
+        # posBall.pose.position.y = 
+        posBall.pose.position.z = 0.0
+        posBall.pose.orientation.x = 0
+        posBall.pose.orientation.y = 0
+        posBall.pose.orientation.z = 0
+        posBall.pose.orientation.w = 1
+        Ballpub.publish(posBall)
     br.sendTransform(t)
 
 def handle_robot_pose(msg):

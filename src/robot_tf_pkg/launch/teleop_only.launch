@@ -1,0 +1,14 @@
+<launch>
+    <!-- TELEOP KEYBOARD -->
+    <node name="teleop_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" />
+    
+    <!-- PROCESS NODE START -->
+    <node name="process" pkg="process_motor" type="motor_process.py" output="screen" />
+
+    <!-- ARDUINO MEGA START -->
+    <node name="serial_mega" pkg="rosserial_python" type="serial_node.py">
+        <param name="port" type="string" value="/dev/ttyUSB1" />
+        <param name="baud" type="int" value="57600" />
+    </node>
+
+</launch>

@@ -21,7 +21,7 @@ def handle_ball_pose(msg):
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
-    if msg.position.x == 0 and msg.position.y == 0:
+    if msg.pose.position.x == 0 and msg.pose.position.y == 0:
         # t.header.stamp = rospy.Time.now()
         # t.header.frame_id = "robot"
         # t.child_frame_id = turtlename
@@ -61,8 +61,8 @@ def handle_ball_pose(msg):
         posBall.header.stamp = rospy.Time.now()
         # posBall.pose.position.x = (msg.position.x)/1000
         # posBall.pose.position.y = (msg.position.y)/1000
-        posBall.pose.position.x = msg.position.x/1000
-        posBall.pose.position.y = msg.position.y/1000
+        posBall.pose.position.x = msg.pose.position.x/1000
+        posBall.pose.position.y = msg.pose.position.y/1000
         posBall.pose.position.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
         posBall.pose.orientation.x = 0
@@ -84,8 +84,8 @@ def handle_ball_pose(msg):
 if __name__ == '__main__':
     rospy.init_node('ball_goal')
     # turtlename = rospy.get_param('~balls')
-    rospy.Subscriber('ballPos_topic',
-                     Pose,
+    rospy.Subscriber('/goal',
+                     PoseStamped,
                      handle_ball_pose)
     
     # rospy.Publisher('/move_base_simple/goal',PoseStamped,queue_size=10)

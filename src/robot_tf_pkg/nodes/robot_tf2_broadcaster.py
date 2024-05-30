@@ -39,8 +39,8 @@ def handle_turtle_pose(msg, turtlename):
     t.child_frame_id = "robot"
     t.transform.translation.x = xpos/1000
     t.transform.translation.y = ypos/1000
-    # t.transform.translation.x = 1000/1000
-    # t.transform.translation.y = 1000/1000
+    # t.transform.translation.x = 0.7
+    # t.transform.translation.y = 0.4
     t.transform.translation.z = 0
     # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
     q = tf_conversions.transformations.quaternion_from_euler(0, 0, vo)

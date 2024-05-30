@@ -44,7 +44,7 @@ def publish_message():
             names = results[0].names
             confidences = max([results[0].boxes.conf.tolist()])
             # plot titik tengah kamera
-            cv2.circle(frame, (335, 240), 
+            cv2.circle(frame, (320, 210), 
                     radius=30, color=(0, 0, 255), thickness=1)
             # cv2.circle(frame, (340, 240), 
             #         radius=30, color=(0, 0, 255), thickness=1)

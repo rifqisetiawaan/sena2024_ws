@@ -57,6 +57,7 @@ all: gtest/all
 all: odometry/all
 all: cam_stream/all
 all: camera_yolo/all
+all: process_motor/all
 all: trial_simulation/all
 all: ball_tf/all
 all: obs_tf/all
@@ -70,6 +71,7 @@ preinstall: gtest/preinstall
 preinstall: odometry/preinstall
 preinstall: cam_stream/preinstall
 preinstall: camera_yolo/preinstall
+preinstall: process_motor/preinstall
 preinstall: trial_simulation/preinstall
 preinstall: ball_tf/preinstall
 preinstall: obs_tf/preinstall
@@ -88,6 +90,7 @@ clean: gtest/clean
 clean: odometry/clean
 clean: cam_stream/clean
 clean: camera_yolo/clean
+clean: process_motor/clean
 clean: trial_simulation/clean
 clean: ball_tf/clean
 clean: obs_tf/clean
@@ -346,6 +349,24 @@ planner/rrt-global-planner/clean: planner/rrt-global-planner/CMakeFiles/visualiz
 planner/rrt-global-planner/clean: planner/rrt-global-planner/CMakeFiles/visualization_msgs_generate_messages_py.dir/clean
 
 .PHONY : planner/rrt-global-planner/clean
+
+#=============================================================================
+# Directory level rules for directory process_motor
+
+# Recursive "all" directory target.
+process_motor/all:
+
+.PHONY : process_motor/all
+
+# Recursive "preinstall" directory target.
+process_motor/preinstall:
+
+.PHONY : process_motor/preinstall
+
+# Recursive "clean" directory target.
+process_motor/clean:
+
+.PHONY : process_motor/clean
 
 #=============================================================================
 # Directory level rules for directory robot_tf_pkg
