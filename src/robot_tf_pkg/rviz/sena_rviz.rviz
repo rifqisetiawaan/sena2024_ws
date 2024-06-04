@@ -31,7 +31,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -64,10 +64,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        balls:
-          Value: true
         map:
-          Value: false
+          Value: true
         robot:
           Value: true
       Marker Alpha: 1
@@ -78,8 +76,6 @@ Visualization Manager:
       Show Names: true
       Tree:
         map:
-          balls:
-            {}
           robot:
             {}
       Update Interval: 0
@@ -199,7 +195,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.705313205718994
+      Distance: 5.012791633605957
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -207,17 +203,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.7464995384216309
-        Y: 1.2090232372283936
-        Z: 0.0030095414258539677
+        X: 0.5208424925804138
+        Y: 0.49205097556114197
+        Z: -0.23638924956321716
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9753983020782471
+      Pitch: 0.769797146320343
       Target Frame: <Fixed Frame>
-      Yaw: 4.568552017211914
+      Yaw: 4.0135369300842285
     Saved: ~
 Window Geometry:
   Displays:

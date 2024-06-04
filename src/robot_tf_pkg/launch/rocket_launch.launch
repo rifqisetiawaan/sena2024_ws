@@ -32,7 +32,7 @@
 
   <!-- ODOM -->
 
-  <node name="odom" pkg="odometry" type="odom.py" output="screen" />
+  <!-- <node name="odom" pkg="odometry" type="odom.py" output="screen" /> -->
 
   <!-- MAP -->
   <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_3226_map.yaml" />
