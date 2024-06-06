@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/krsbi/sena2024_ws/devel/share/common-lisp/ros/robot_tf_pkg/msg/encoder.lisp"
+  "/home/krsbi/sena2024_ws/devel/share/common-lisp/ros/robot_tf_pkg/msg/motor.lisp"
   "CMakeFiles/robot_tf_pkg_generate_messages_lisp"
 )
 

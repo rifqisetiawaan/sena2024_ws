@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/krsbi/sena2024_ws/build
 include robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py.dir/progress.make
 
 robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_encoder.py
+robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_motor.py
 robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/__init__.py
 
 
@@ -62,13 +63,20 @@ robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG robot_tf_pkg/encoder"
 	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg
 
+/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_motor.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_motor.py: /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG robot_tf_pkg/motor"
+	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg
+
 /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/__init__.py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_encoder.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for robot_tf_pkg"
+/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/__init__.py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_motor.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for robot_tf_pkg"
 	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg --initpy
 
 robot_tf_pkg_generate_messages_py: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py
 robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_encoder.py
+robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_motor.py
 robot_tf_pkg_generate_messages_py: /home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/__init__.py
 robot_tf_pkg_generate_messages_py: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_py.dir/build.make
 

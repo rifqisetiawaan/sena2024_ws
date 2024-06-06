@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/krsbi/sena2024_ws/build
 include robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_cpp.dir/progress.make
 
 robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_cpp: /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/encoder.h
+robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_cpp: /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/motor.h
 
 
 /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/encoder.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -62,8 +63,15 @@ robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_cpp: /home/krsbi/sena2024
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from robot_tf_pkg/encoder.msg"
 	cd /home/krsbi/sena2024_ws/src/robot_tf_pkg && /home/krsbi/sena2024_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/motor.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/motor.h: /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg
+/home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/motor.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from robot_tf_pkg/motor.msg"
+	cd /home/krsbi/sena2024_ws/src/robot_tf_pkg && /home/krsbi/sena2024_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
+
 robot_tf_pkg_generate_messages_cpp: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_cpp
 robot_tf_pkg_generate_messages_cpp: /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/encoder.h
+robot_tf_pkg_generate_messages_cpp: /home/krsbi/sena2024_ws/devel/include/robot_tf_pkg/motor.h
 robot_tf_pkg_generate_messages_cpp: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_cpp.dir/build.make
 
 .PHONY : robot_tf_pkg_generate_messages_cpp

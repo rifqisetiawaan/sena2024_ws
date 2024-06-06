@@ -1,0 +1,8 @@
+prefix=/home/krsbi/sena2024_ws/install
+
+Name: camera_yolo
+Description: Description of camera_yolo
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

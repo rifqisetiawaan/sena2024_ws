@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg"
+messages_str = "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg;/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg"
 services_str = ""
 pkg_name = "robot_tf_pkg"
 dependencies_str = "std_msgs"

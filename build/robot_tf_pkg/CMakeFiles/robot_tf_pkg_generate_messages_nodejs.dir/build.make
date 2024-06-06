@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/krsbi/sena2024_ws/build
 include robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_nodejs.dir/progress.make
 
 robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_nodejs: /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/encoder.js
+robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_nodejs: /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/motor.js
 
 
 /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/encoder.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_nodejs: /home/krsbi/sena2
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from robot_tf_pkg/encoder.msg"
 	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg
 
+/home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/motor.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/motor.js: /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from robot_tf_pkg/motor.msg"
+	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg
+
 robot_tf_pkg_generate_messages_nodejs: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_nodejs
 robot_tf_pkg_generate_messages_nodejs: /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/encoder.js
+robot_tf_pkg_generate_messages_nodejs: /home/krsbi/sena2024_ws/devel/share/gennodejs/ros/robot_tf_pkg/msg/motor.js
 robot_tf_pkg_generate_messages_nodejs: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_nodejs.dir/build.make
 
 .PHONY : robot_tf_pkg_generate_messages_nodejs

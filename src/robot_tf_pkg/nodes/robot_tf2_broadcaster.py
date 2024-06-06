@@ -20,12 +20,12 @@ def handle_turtle_pose(msg, turtlename):
     Robotpub = rospy.Publisher('robot_pos', Pose, queue_size=10)
     rob_pos = Pose()
     # konversi pulsa ke mm
-    # dist1 = 2*3.14*50*(msg.enc1/130)
-    # dist2 = 2*3.14*50*(msg.enc2/139)
-    # dist3 = 2*3.14*50*(msg.enc3/133)
-    dist1 = 2*3.14*50*(msg.enc1/135)
-    dist2 = 2*3.14*50*(msg.enc2/135)
-    dist3 = 2*3.14*50*(msg.enc3/135)
+    dist1 = 2*3.14*50*(msg.enc1/130)
+    dist2 = 2*3.14*50*(msg.enc2/139)
+    dist3 = 2*3.14*50*(msg.enc3/133)
+    # dist1 = 2*3.14*50*(msg.enc1/135)
+    # dist2 = 2*3.14*50*(msg.enc2/135)
+    # dist3 = 2*3.14*50*(msg.enc3/135)
 
     # kalkulasi encoder 3 roda
     vx = dist1*(math.cos(30))-dist2*(math.cos(30))

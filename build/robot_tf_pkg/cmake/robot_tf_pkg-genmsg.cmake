@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "robot_tf_pkg: 1 messages, 0 services")
+message(STATUS "robot_tf_pkg: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_robot_tf_pkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_tf_pkg" "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg" ""
 )
 
+get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" NAME_WE)
+add_custom_target(_robot_tf_pkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_tf_pkg" "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_robot_tf_pkg_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(robot_tf_pkg
   "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/robot_tf_pkg
+)
+_generate_msg_cpp(robot_tf_pkg
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/robot_tf_pkg
@@ -51,6 +62,8 @@ add_dependencies(robot_tf_pkg_generate_messages robot_tf_pkg_generate_messages_c
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg" NAME_WE)
 add_dependencies(robot_tf_pkg_generate_messages_cpp _robot_tf_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" NAME_WE)
+add_dependencies(robot_tf_pkg_generate_messages_cpp _robot_tf_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(robot_tf_pkg_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_tf_pkg_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(robot_tf_pkg
   "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/robot_tf_pkg
+)
+_generate_msg_eus(robot_tf_pkg
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/robot_tf_pkg
@@ -84,6 +103,8 @@ add_dependencies(robot_tf_pkg_generate_messages robot_tf_pkg_generate_messages_e
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg" NAME_WE)
 add_dependencies(robot_tf_pkg_generate_messages_eus _robot_tf_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" NAME_WE)
+add_dependencies(robot_tf_pkg_generate_messages_eus _robot_tf_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(robot_tf_pkg_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_tf_pkg_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(robot_tf_pkg
   "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/robot_tf_pkg
+)
+_generate_msg_lisp(robot_tf_pkg
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/robot_tf_pkg
@@ -117,6 +144,8 @@ add_dependencies(robot_tf_pkg_generate_messages robot_tf_pkg_generate_messages_l
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg" NAME_WE)
 add_dependencies(robot_tf_pkg_generate_messages_lisp _robot_tf_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" NAME_WE)
+add_dependencies(robot_tf_pkg_generate_messages_lisp _robot_tf_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(robot_tf_pkg_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_tf_pkg_generate_messages_lisp
 ### Generating Messages
 _generate_msg_nodejs(robot_tf_pkg
   "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/robot_tf_pkg
+)
+_generate_msg_nodejs(robot_tf_pkg
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/robot_tf_pkg
@@ -150,6 +185,8 @@ add_dependencies(robot_tf_pkg_generate_messages robot_tf_pkg_generate_messages_n
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg" NAME_WE)
 add_dependencies(robot_tf_pkg_generate_messages_nodejs _robot_tf_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" NAME_WE)
+add_dependencies(robot_tf_pkg_generate_messages_nodejs _robot_tf_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(robot_tf_pkg_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_tf_pkg_generate_messages_node
 ### Generating Messages
 _generate_msg_py(robot_tf_pkg
   "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_tf_pkg
+)
+_generate_msg_py(robot_tf_pkg
+  "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_tf_pkg
@@ -182,6 +225,8 @@ add_dependencies(robot_tf_pkg_generate_messages robot_tf_pkg_generate_messages_p
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg" NAME_WE)
+add_dependencies(robot_tf_pkg_generate_messages_py _robot_tf_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg" NAME_WE)
 add_dependencies(robot_tf_pkg_generate_messages_py _robot_tf_pkg_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/__init__.py"
   "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_encoder.py"
+  "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages/robot_tf_pkg/msg/_motor.py"
   "CMakeFiles/robot_tf_pkg_generate_messages_py"
 )
 

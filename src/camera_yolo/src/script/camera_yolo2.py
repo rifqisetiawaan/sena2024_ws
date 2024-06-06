@@ -120,7 +120,6 @@ def publish_message():
                     # cby = -1167.8 + 240.2 * (math.log(cby))
                     cbx = -3.7975 * cbx + 441.8523
                     cby = -3.7975 * cby + 441.8523
-                    rospy.loginfo(cby)
                     # cbx = math.sqrt()320, 210
                     # cbx = 844.3+177.2*(math.log(cbx))
                     # cby = 844.3+177.2*(math.log(cby))

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/krsbi/sena2024_ws/build
 include robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus.dir/progress.make
 
 robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg/encoder.l
+robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg/motor.l
 robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/manifest.l
 
 
@@ -62,12 +63,18 @@ robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from robot_tf_pkg/encoder.msg"
 	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/encoder.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg
 
+/home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg/motor.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg/motor.l: /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from robot_tf_pkg/motor.msg"
+	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/krsbi/sena2024_ws/src/robot_tf_pkg/msg/motor.msg -Irobot_tf_pkg:/home/krsbi/sena2024_ws/src/robot_tf_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p robot_tf_pkg -o /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg
+
 /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for robot_tf_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/krsbi/sena2024_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for robot_tf_pkg"
 	cd /home/krsbi/sena2024_ws/build/robot_tf_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg robot_tf_pkg std_msgs
 
 robot_tf_pkg_generate_messages_eus: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus
 robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg/encoder.l
+robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/msg/motor.l
 robot_tf_pkg_generate_messages_eus: /home/krsbi/sena2024_ws/devel/share/roseus/ros/robot_tf_pkg/manifest.l
 robot_tf_pkg_generate_messages_eus: robot_tf_pkg/CMakeFiles/robot_tf_pkg_generate_messages_eus.dir/build.make
 

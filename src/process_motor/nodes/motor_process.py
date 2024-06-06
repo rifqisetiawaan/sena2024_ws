@@ -2,14 +2,14 @@
 import rospy
 from geometry_msgs.msg import Twist
 from robot_tf_pkg.msg import encoder
-import math
+from robot_tf_pkg.msg import motor
 import numpy as np
 
 
 def feedback(msg):
-    motPub = rospy.Publisher('/motor_value', encoder, queue_size=10)
+    motPub = rospy.Publisher('/motor_value', motor, queue_size=10)
     kinem = Twist()
-    mot_val = encoder()
+    mot_val = motor()
     x = msg.linear.x
     y = msg.linear.y
     z = 0
@@ -18,16 +18,24 @@ def feedback(msg):
             [-0.33, -0.58, 0.33],
             [0.67, 0, 0.33]])
     pergerakan = np.array([x, y, z])
-    # rospy.loginfo(x)
 
     hasil = np.dot(matriks, pergerakan)
     # hasil = np.dot(pergerakan, matriks)
  
     [mot1, mot2, mot3] = hasil
 
-    mot_val.enc1 = mot1*255
-    mot_val.enc2 = mot2*255
-    mot_val.enc3 = mot3*255
+    mot1 = mot1*255
+    mot2 = mot2*255
+    mot3 = mot3*255
+
+    mot1 = int(mot1)
+    mot2 = int(mot2)
+    mot3 = int(mot3)
+
+    mot_val.motor1 = mot1
+    mot_val.motor2 = mot2
+    mot_val.motor3 = mot3
+    # rospy.loginfo(mot_val.enc1)
     motPub.publish(mot_val)
 
     
