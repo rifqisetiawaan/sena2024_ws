@@ -26,8 +26,8 @@ def handle_ball_pose(msg, turtlename):
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
-    X = xpos/1000 + ((msg.position.x-320)/1000)*3
-    Y = ypos/1000 + ((msg.position.y-210)/1000)*3
+    X = xpos/1000 + ((msg.position.x-320)/1000)*2
+    Y = ypos/1000 + ((msg.position.y-210)/1000)*2
     # X = 0.5
     # Y = 1.5
 

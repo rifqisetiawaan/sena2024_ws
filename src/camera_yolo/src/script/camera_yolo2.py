@@ -114,19 +114,10 @@ def publish_message():
                     cbx, cby = cent_bola
                     # lempar ke message Point32 hasil centroid bola
 
-                    cbx = (640-(cbx-0))-310
-                    cby = (480-(cby-0))-230
-                    # cbx = -1167.8 + 240.2 * (math.log(cbx))
-                    # cby = -1167.8 + 240.2 * (math.log(cby))
-                    cbx = -3.7975 * cbx + 441.8523
-                    cby = -3.7975 * cby + 441.8523
-                    # cbx = math.sqrt()320, 210
-                    # cbx = 844.3+177.2*(math.log(cbx))
-                    # cby = 844.3+177.2*(math.log(cby))
-                    # cbx = -162.36+63.17*(math.log(cbx))
-                    # cby = -162.36+63.17*(math.log(cby))
-                    # cbx = 267.5+43.3*(math.log(cbx))
-                    # cby = 267.5+43.3*(math.log(cby))
+                    # cbx = (640-(cbx-0))-310
+                    # cby = (480-(cby-0))-230
+                    cbx = (640-(cbx-0))
+                    cby = (480-(cby-0))
                     poseBall.position.x = cbx
                     poseBall.position.y = cby
                     poseObs.position.x = 0.0
