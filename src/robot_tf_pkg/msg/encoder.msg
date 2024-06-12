@@ -1,3 +1,3 @@
-float64 enc1
-float64 enc2
-float64 enc3
+float32 enc1
+float32 enc2
+float32 enc3

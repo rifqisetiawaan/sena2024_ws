@@ -8,14 +8,15 @@ import struct
 
 
 class encoder(genpy.Message):
-  _md5sum = "b4b6d686f22bba1d178b85e292ca0a20"
+  _md5sum = "3b2d18c22293b69b292f5376e68afd3d"
   _type = "robot_tf_pkg/encoder"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float64 enc1
-float64 enc2
-float64 enc3"""
+  _full_text = """float32 enc1
+float32 enc2
+float32 enc3
+"""
   __slots__ = ['enc1','enc2','enc3']
-  _slot_types = ['float64','float64','float64']
+  _slot_types = ['float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -58,7 +59,7 @@ float64 enc3"""
     """
     try:
       _x = self
-      buff.write(_get_struct_3d().pack(_x.enc1, _x.enc2, _x.enc3))
+      buff.write(_get_struct_3f().pack(_x.enc1, _x.enc2, _x.enc3))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -73,8 +74,8 @@ float64 enc3"""
       end = 0
       _x = self
       start = end
-      end += 24
-      (_x.enc1, _x.enc2, _x.enc3,) = _get_struct_3d().unpack(str[start:end])
+      end += 12
+      (_x.enc1, _x.enc2, _x.enc3,) = _get_struct_3f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -88,7 +89,7 @@ float64 enc3"""
     """
     try:
       _x = self
-      buff.write(_get_struct_3d().pack(_x.enc1, _x.enc2, _x.enc3))
+      buff.write(_get_struct_3f().pack(_x.enc1, _x.enc2, _x.enc3))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -104,8 +105,8 @@ float64 enc3"""
       end = 0
       _x = self
       start = end
-      end += 24
-      (_x.enc1, _x.enc2, _x.enc3,) = _get_struct_3d().unpack(str[start:end])
+      end += 12
+      (_x.enc1, _x.enc2, _x.enc3,) = _get_struct_3f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -114,9 +115,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_3d = None
-def _get_struct_3d():
-    global _struct_3d
-    if _struct_3d is None:
-        _struct_3d = struct.Struct("<3d")
-    return _struct_3d
+_struct_3f = None
+def _get_struct_3f():
+    global _struct_3f
+    if _struct_3f is None:
+        _struct_3f = struct.Struct("<3f")
+    return _struct_3f

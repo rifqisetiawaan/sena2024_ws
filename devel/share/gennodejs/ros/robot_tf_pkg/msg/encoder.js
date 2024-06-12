@@ -47,11 +47,11 @@ class encoder {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type encoder
     // Serialize message field [enc1]
-    bufferOffset = _serializer.float64(obj.enc1, buffer, bufferOffset);
+    bufferOffset = _serializer.float32(obj.enc1, buffer, bufferOffset);
     // Serialize message field [enc2]
-    bufferOffset = _serializer.float64(obj.enc2, buffer, bufferOffset);
+    bufferOffset = _serializer.float32(obj.enc2, buffer, bufferOffset);
     // Serialize message field [enc3]
-    bufferOffset = _serializer.float64(obj.enc3, buffer, bufferOffset);
+    bufferOffset = _serializer.float32(obj.enc3, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -60,16 +60,16 @@ class encoder {
     let len;
     let data = new encoder(null);
     // Deserialize message field [enc1]
-    data.enc1 = _deserializer.float64(buffer, bufferOffset);
+    data.enc1 = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [enc2]
-    data.enc2 = _deserializer.float64(buffer, bufferOffset);
+    data.enc2 = _deserializer.float32(buffer, bufferOffset);
     // Deserialize message field [enc3]
-    data.enc3 = _deserializer.float64(buffer, bufferOffset);
+    data.enc3 = _deserializer.float32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 24;
+    return 12;
   }
 
   static datatype() {
@@ -79,15 +79,16 @@ class encoder {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'b4b6d686f22bba1d178b85e292ca0a20';
+    return '3b2d18c22293b69b292f5376e68afd3d';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float64 enc1
-    float64 enc2
-    float64 enc3
+    float32 enc1
+    float32 enc2
+    float32 enc3
+    
     `;
   }
 

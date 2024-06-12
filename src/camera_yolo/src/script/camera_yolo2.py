@@ -11,7 +11,16 @@ from prcs_image.msg import squareInfo
 from prcs_image.image_process import process_img as pr
 from prcs_image.command_vel import velo as vl
 from ultralytics import YOLO
-from prcs_image.msg import yoloPos
+import joblib
+from sklearn.preprocessing import PolynomialFeatures
+
+model_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_regression_model.pkl'
+poly_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_features.pkl'
+
+# Load the model and polynomial features
+model_poly = joblib.load(model_filename)
+poly = joblib.load(poly_filename)
+message = Pose()
 
 def publish_message():
     Ballpub = rospy.Publisher('ballPos_topic', Pose, queue_size=10)
@@ -33,10 +42,8 @@ def publish_message():
         poseObs.position.x = 0.0
         poseObs.position.y = 0.0
 
-        if ret==True:
-            # rospy.loginfo('publishing video frame')
-            
-            results = model(frame, conf=0.5)
+        if ret==True:            
+            results = model(frame)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -44,7 +51,7 @@ def publish_message():
             names = results[0].names
             confidences = max([results[0].boxes.conf.tolist()])
             # plot titik tengah kamera
-            cv2.circle(frame, (310, 230), 
+            cv2.circle(frame, (325, 240), 
                     radius=30, color=(0, 0, 255), thickness=1)
             # cv2.circle(frame, (340, 240), 
             #         radius=30, color=(0, 0, 255), thickness=1)
@@ -55,11 +62,11 @@ def publish_message():
                 confidence = conf
                 detected_class = cls
                 name = names[int(cls)]
-                print("----START----")
+                # print("----START----")
                 # print("BOX----")
                 # print(box)
-                print("CLS----")
-                print(cls)
+                # print("CLS----")
+                # print(cls)
                 # print("CONF---")
                 # print(conf)
                 # print("----END----")
@@ -87,7 +94,6 @@ def publish_message():
                     # hitung centroid bola
                     x1b, y1b, x2b, y2b = boxes[0]
                     cent_bola = pr.process_image.find_centroid(x1b, y1b, x2b, y2b)
-                    
                     # hitung centroid kotak
                     x1k, y1k, x2k, y2k = boxes[1]
                     cent_kotak = pr.process_image.find_centroid(x1k, y1k, x2k, y2k)
@@ -113,11 +119,10 @@ def publish_message():
                     print(str(cent_bola))
                     cbx, cby = cent_bola
                     # lempar ke message Point32 hasil centroid bola
-
-                    # cbx = (640-(cbx-0))-310
-                    # cby = (480-(cby-0))-230
                     cbx = (640-(cbx-0))
                     cby = (480-(cby-0))
+                    # cbx = -5768+990*np.log(cbx)
+                    # cby = -5768+990*np.log(cby)
                     poseBall.position.x = cbx
                     poseBall.position.y = cby
                     poseObs.position.x = 0.0

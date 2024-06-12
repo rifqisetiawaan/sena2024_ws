@@ -1,10 +1,27 @@
 local_costmap:
-  global_frame: map
-  robot_base_frame: robot
-  update_frequency: 0.3
-  publish_frequency: 2.0
-  # static_map: true
-  rolling_window: false
-  width: 53
-  height: 65
-  resolution: 0.05
+  global_frame: map  # Frame global, biasanya /odom untuk odometri
+  robot_base_frame: robot  # Frame dasar robot
+  update_frequency: 5.0  # Frekuensi pembaruan costmap dalam Hertz
+  publish_frequency: 2.0  # Frekuensi publikasi costmap dalam Hertz
+  transform_tolerance: 0.5  # Toleransi waktu untuk transformasi
+  static_map: true  # Tidak menggunakan peta statis
+  rolling_window: false  # Menggunakan jendela bergulir
+
+  width: 1  # Lebar costmap lokal dalam meter
+  height: 1  # Tinggi costmap lokal dalam meter
+  resolution: 0.05  # Resolusi costmap dalam meter per sel
+
+  # Konfigurasi layer costmap
+  plugins:
+      - {name: static_layer, type: "costmap_2d::StaticLayer"}
+      - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+  static_layer:
+      unknown_cost_value: -1
+      # lethal_cost_threshold: 255
+      map_topic: map
+      # track_unknown_space: false
+
+  inflation_layer:
+      inflation_radius: 3
+      cost_scaling_factor: 7

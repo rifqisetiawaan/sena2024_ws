@@ -37,13 +37,13 @@ struct encoder_
 
 
 
-   typedef double _enc1_type;
+   typedef float _enc1_type;
   _enc1_type enc1;
 
-   typedef double _enc2_type;
+   typedef float _enc2_type;
   _enc2_type enc2;
 
-   typedef double _enc3_type;
+   typedef float _enc3_type;
   _enc3_type enc3;
 
 
@@ -134,12 +134,12 @@ struct MD5Sum< ::robot_tf_pkg::encoder_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "b4b6d686f22bba1d178b85e292ca0a20";
+    return "3b2d18c22293b69b292f5376e68afd3d";
   }
 
   static const char* value(const ::robot_tf_pkg::encoder_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xb4b6d686f22bba1dULL;
-  static const uint64_t static_value2 = 0x178b85e292ca0a20ULL;
+  static const uint64_t static_value1 = 0x3b2d18c22293b69bULL;
+  static const uint64_t static_value2 = 0x292f5376e68afd3dULL;
 };
 
 template<class ContainerAllocator>
@@ -158,9 +158,9 @@ struct Definition< ::robot_tf_pkg::encoder_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 enc1\n"
-"float64 enc2\n"
-"float64 enc3\n"
+    return "float32 enc1\n"
+"float32 enc2\n"
+"float32 enc3\n"
 ;
   }
 
@@ -201,11 +201,11 @@ struct Printer< ::robot_tf_pkg::encoder_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::robot_tf_pkg::encoder_<ContainerAllocator>& v)
   {
     s << indent << "enc1: ";
-    Printer<double>::stream(s, indent + "  ", v.enc1);
+    Printer<float>::stream(s, indent + "  ", v.enc1);
     s << indent << "enc2: ";
-    Printer<double>::stream(s, indent + "  ", v.enc2);
+    Printer<float>::stream(s, indent + "  ", v.enc2);
     s << indent << "enc3: ";
-    Printer<double>::stream(s, indent + "  ", v.enc3);
+    Printer<float>::stream(s, indent + "  ", v.enc3);
   }
 };
 

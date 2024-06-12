@@ -1,5 +1,5 @@
 <launch>
-  <node name="camera_yolo" pkg="camera_yolo" type="camera_yolo2.py" output="screen" />
+  <!-- <node name="camera_yolo" pkg="camera_yolo" type="camera_yolo2.py" output="screen" /> -->
 
   <!-- ESP START -->
   <node name="serial_ESP" pkg="rosserial_python" type="serial_node.py">
@@ -17,10 +17,16 @@
   <!-- PROCESS NODE START -->
   <node name="process" pkg="process_motor" type="motor_process.py" output="screen" />
 
-  <!-- TF BROADCAST -->
-  <node name="ball_tf2_broadcaster" pkg="robot_tf_pkg" type="ball_tf2_broadcaster.py" output="screen">
+  <!-- TF BALL BROADCAST -->
+  <!-- <node name="ball_tf2_broadcaster" pkg="robot_tf_pkg" type="ball_tf2_broadcaster.py" output="screen">
     <param name="balls" type="string" value="balls" />
-  </node>
+  </node> -->
+
+  <!-- BALL CALIB -->
+
+  <!-- <node name="ball_calib" pkg="camera_yolo" type="calib.py" output="screen" /> -->
+
+  <!-- TF ROBOT BROADCAST -->
 
   <node name="robot_tf2_broadcaster" pkg="robot_tf_pkg" type="robot_tf2_broadcaster.py" output="screen">
     <param name="robot" type="string" value="robot" />
@@ -50,13 +56,11 @@
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/local_costmap_params.yaml" command="load" />
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/global_costmap_params.yaml" command="load" />
-    <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" />
+    <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" /> -->
+    <rosparam file="/home/krsbi/sena2024_ws/src/planner/dwa_local_planner_params.yaml" command="load" />
+    <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/navfn_global_planner_params.yaml" command="load" /> -->
+    <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_global_planner_params.yaml" command="load" /> -->
     <!-- <param name="base_global_planner" value="global_planner/RRTGlobalPlanner"/>
 <rosparam file="/home/krsbi/sena2024_ws/src/planner/rrt-global-planner/params/rrt_global_planner.yaml" command="load" /> -->
   </node>
-  <!-- <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load" ns="global_costmap" />
-  <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load" ns="local_costmap" />
-  <rosparam file="/home/krsbi/sena2024_ws/src/costmap/local_costmap_params.yaml" command="load" />
-  <rosparam file="/home/krsbi/sena2024_ws/src/costmap/global_costmap_params.yaml" command="load" />
-  <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" /> -->
 </launch>

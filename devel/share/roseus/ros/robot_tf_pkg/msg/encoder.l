@@ -40,47 +40,48 @@
   (:serialization-length
    ()
    (+
-    ;; float64 _enc1
-    8
-    ;; float64 _enc2
-    8
-    ;; float64 _enc3
-    8
+    ;; float32 _enc1
+    4
+    ;; float32 _enc2
+    4
+    ;; float32 _enc3
+    4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float64 _enc1
-       (sys::poke _enc1 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _enc2
-       (sys::poke _enc2 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _enc3
-       (sys::poke _enc3 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float32 _enc1
+       (sys::poke _enc1 (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _enc2
+       (sys::poke _enc2 (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _enc3
+       (sys::poke _enc3 (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float64 _enc1
-     (setq _enc1 (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _enc2
-     (setq _enc2 (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _enc3
-     (setq _enc3 (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float32 _enc1
+     (setq _enc1 (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _enc2
+     (setq _enc2 (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _enc3
+     (setq _enc3 (sys::peek buf ptr- :float)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get robot_tf_pkg::encoder :md5sum-) "b4b6d686f22bba1d178b85e292ca0a20")
+(setf (get robot_tf_pkg::encoder :md5sum-) "3b2d18c22293b69b292f5376e68afd3d")
 (setf (get robot_tf_pkg::encoder :datatype-) "robot_tf_pkg/encoder")
 (setf (get robot_tf_pkg::encoder :definition-)
-      "float64 enc1
-float64 enc2
-float64 enc3
+      "float32 enc1
+float32 enc2
+float32 enc3
+
 ")
 
 
 
-(provide :robot_tf_pkg/encoder "b4b6d686f22bba1d178b85e292ca0a20")
+(provide :robot_tf_pkg/encoder "3b2d18c22293b69b292f5376e68afd3d")
 
 

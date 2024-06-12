@@ -26,8 +26,8 @@ def handle_ball_pose(msg, turtlename):
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
-    X = xpos/1000 + ((msg.position.x-320)/1000)*2
-    Y = ypos/1000 + ((msg.position.y-210)/1000)*2
+    X = xpos/1000 + ((msg.position.x-325)/1000)*2
+    Y = ypos/1000 + ((msg.position.y-245)/1000)*2
     # X = 0.5
     # Y = 1.5
 
@@ -37,8 +37,8 @@ def handle_ball_pose(msg, turtlename):
         t.header.stamp = rospy.Time.now()
         t.header.frame_id = "map"
         t.child_frame_id = turtlename
-        t.transform.translation.x = xpos/1000
-        t.transform.translation.y = ypos/1000
+        t.transform.translation.x = (xpos/1000)*2
+        t.transform.translation.y = (ypos/1000)*2
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
@@ -49,8 +49,8 @@ def handle_ball_pose(msg, turtlename):
         # ------------
         posBall.header.frame_id = 'map'
         posBall.header.stamp = rospy.Time.now()
-        posBall.pose.position.x = xpos/1000
-        posBall.pose.position.y = ypos/1000
+        posBall.pose.position.x = (xpos/1000)*2
+        posBall.pose.position.y = (ypos/1000)*2
         posBall.pose.position.z = 0.0
         posBall.pose.orientation.x = 0
         posBall.pose.orientation.y = 0
