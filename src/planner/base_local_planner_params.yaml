@@ -1,4 +1,4 @@
-DWAPlannerROS:
+DWAPlannerROS :
   acc_lim_x: 10  # Batas akselerasi dalam arah x
   acc_lim_y: 10    # Batas akselerasi dalam arah y (0 untuk robot diferensial)
   acc_lim_theta: 3.2  # Batas akselerasi sudut
