@@ -4,8 +4,8 @@ local_costmap:
   update_frequency: 5.0  # Frekuensi pembaruan costmap dalam Hertz
   publish_frequency: 2.0  # Frekuensi publikasi costmap dalam Hertz
   transform_tolerance: 0.5  # Toleransi waktu untuk transformasi
-  static_map: true  # Tidak menggunakan peta statis
-  rolling_window: false  # Menggunakan jendela bergulir
+  static_map: true  #  menggunakan peta statis
+  rolling_window: false  # tidak menggunakan jendela bergulir
 
   width: 1  # Lebar costmap lokal dalam meter
   height: 1  # Tinggi costmap lokal dalam meter

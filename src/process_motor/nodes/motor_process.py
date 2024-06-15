@@ -12,7 +12,8 @@ def feedback(msg):
     mot_val = motor()
     x = msg.linear.x
     y = msg.linear.y
-    z = msg.angular.z
+    # z = msg.angular.z
+    z = 0
 
     matriks = np.array([[-0.33, 0.58, 0.33],
             [-0.33, -0.58, 0.33],
@@ -24,9 +25,9 @@ def feedback(msg):
  
     [mot1, mot2, mot3] = hasil
 
-    mot1 = (mot1*255)/6
-    mot2 = (mot2*255)/6
-    mot3 = (mot3*255)/6
+    mot1 = (mot1*255)*2
+    mot2 = (mot2*255)*2
+    mot3 = (mot3*255)*2
 
     mot1 = int(mot1)
     mot2 = int(mot2)

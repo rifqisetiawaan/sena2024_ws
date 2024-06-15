@@ -57,8 +57,9 @@
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/local_costmap_params.yaml" command="load" />
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/global_costmap_params.yaml" command="load" />
     <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" /> -->
-    <rosparam file="/home/krsbi/sena2024_ws/src/planner/dwa_local_planner_params.yaml" command="load" />
-    <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/navfn_global_planner_params.yaml" command="load" /> -->
+    <rosparam file="/home/krsbi/sena2024_ws/src/planner/dwa_local_planner_params.yaml" command="load" ns="move_base/DWAPlannerROS" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/planner/move_base_params.yaml" command="load" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/planner/navfn_global_planner_params.yaml" command="load" />
     <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_global_planner_params.yaml" command="load" /> -->
     <!-- <param name="base_global_planner" value="global_planner/RRTGlobalPlanner"/>
 <rosparam file="/home/krsbi/sena2024_ws/src/planner/rrt-global-planner/params/rrt_global_planner.yaml" command="load" /> -->

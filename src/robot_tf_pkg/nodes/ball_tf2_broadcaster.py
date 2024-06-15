@@ -28,8 +28,6 @@ def handle_ball_pose(msg, turtlename):
     posBall = PoseStamped()
     X = xpos/1000 + ((msg.position.x-325)/1000)*2
     Y = ypos/1000 + ((msg.position.y-245)/1000)*2
-    # X = 0.5
-    # Y = 1.5
 
     # x_new = X * math.cos(math.radians(135)) - Y * math.sin(math.radians(135))
     # y_new = X * math.cos(math.radians(135)) + Y * math.sin(math.radians(135))
@@ -37,8 +35,8 @@ def handle_ball_pose(msg, turtlename):
         t.header.stamp = rospy.Time.now()
         t.header.frame_id = "map"
         t.child_frame_id = turtlename
-        t.transform.translation.x = (xpos/1000)*2
-        t.transform.translation.y = (ypos/1000)*2
+        t.transform.translation.x = xpos
+        t.transform.translation.y = ypos
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
@@ -49,8 +47,8 @@ def handle_ball_pose(msg, turtlename):
         # ------------
         posBall.header.frame_id = 'map'
         posBall.header.stamp = rospy.Time.now()
-        posBall.pose.position.x = (xpos/1000)*2
-        posBall.pose.position.y = (ypos/1000)*2
+        posBall.pose.position.x = xpos
+        posBall.pose.position.y = ypos
         posBall.pose.position.z = 0.0
         posBall.pose.orientation.x = 0
         posBall.pose.orientation.y = 0
@@ -61,12 +59,8 @@ def handle_ball_pose(msg, turtlename):
         t.header.stamp = rospy.Time.now()
         t.header.frame_id = "map"
         t.child_frame_id = turtlename
-        # t.transform.translation.x = (msg.position.x +335)/1000
-        # t.transform.translation.y = (msg.position.y +240)/1000
         t.transform.translation.x = X
         t.transform.translation.y = Y
-        # posBall.pose.position.x = 0.3
-        # posBall.pose.position.y = 1.8
         t.transform.translation.z = 0.0
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
