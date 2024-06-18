@@ -28,17 +28,9 @@
 
   <!-- TF ROBOT BROADCAST -->
 
-  <node name="robot_tf2_broadcaster" pkg="robot_tf_pkg" type="robot_tf2_broadcaster.py" output="screen">
+  <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
     <param name="robot" type="string" value="robot" />
   </node>
-
-  <!-- GOAL -->
-
-  <!-- <node name="goal" pkg="robot_tf_pkg" type="ball_goal.py" output="screen" /> -->
-
-  <!-- ODOM -->
-
-  <!-- <node name="odom" pkg="odometry" type="odom.py" output="screen" /> -->
 
   <!-- MAP -->
   <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_3226_map.yaml" />
@@ -57,7 +49,8 @@
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/local_costmap_params.yaml" command="load" />
     <rosparam file="/home/krsbi/sena2024_ws/src/costmap/global_costmap_params.yaml" command="load" />
     <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" /> -->
-    <rosparam file="/home/krsbi/sena2024_ws/src/planner/dwa_local_planner_params.yaml" command="load" ns="move_base/DWAPlannerROS" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/planner/dwa_local_planner_params.yaml" command="load"
+      ns="move_base/DWAPlannerROS" />
     <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/teb_local_planner_params.yaml" command="load" ns="move_base/TebLocalPlannerROS" /> -->
     <rosparam file="/home/krsbi/sena2024_ws/src/planner/move_base_params.yaml" command="load" />
     <rosparam file="/home/krsbi/sena2024_ws/src/planner/navfn_global_planner_params.yaml" command="load" />

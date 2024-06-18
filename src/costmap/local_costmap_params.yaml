@@ -1,6 +1,6 @@
 local_costmap:
-  global_frame: map  # Frame global, biasanya /odom untuk odometri
-  robot_base_frame: robot  # Frame dasar robot
+  global_frame: odom  # Frame global, biasanya /odom untuk odometri
+  robot_base_frame: base_link  # Frame dasar robot
   update_frequency: 1.0  # Frekuensi pembaruan costmap dalam Hertz
   publish_frequency: 2.0  # Frekuensi publikasi costmap dalam Hertz
   transform_tolerance: 0.5  # Toleransi waktu untuk transformasi

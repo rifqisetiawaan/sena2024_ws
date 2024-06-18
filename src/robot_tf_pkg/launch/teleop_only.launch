@@ -17,8 +17,14 @@
         <param name="baud" type="int" value="57600" />
     </node>
 
-    <!-- TF BROADCAST -->
-    <node name="robot_tf2_broadcaster" pkg="robot_tf_pkg" type="robot_tf2_broadcaster.py" output="screen">
+    <!-- TF ODOM BROADCAST -->
+    <!-- <node name="odom_tf2_broadcaster" pkg="robot_tf_pkg" type="odom_tf2_broadcaster.py" output="screen">
+        <param name="robot" type="string" value="robot" />
+    </node> -->
+
+    <!-- TF BASE FOOTPRINT BROADCAST -->
+
+    <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
         <param name="robot" type="string" value="robot" />
     </node>
 
