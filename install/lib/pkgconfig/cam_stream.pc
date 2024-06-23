@@ -1,8 +1,0 @@
-prefix=/home/krsbi/sena2024_ws/install
-
-Name: cam_stream
-Description: Description of cam_stream
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -28,12 +28,14 @@
 
   <!-- TF ROBOT BROADCAST -->
 
-  <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
+  <!-- <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
     <param name="robot" type="string" value="robot" />
-  </node>
+  </node> -->
+  <node name="sementara" pkg="robot_tf_pkg" type="sementara2.py" output="screen" />
 
   <!-- MAP -->
-  <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_3226_map.yaml" />
+  <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan3x3.yaml" />
 
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
@@ -43,16 +45,18 @@
 
   <!-- NAV STACK -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load"
+    <rosparam file="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/move_base_params.yaml" command="load" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/costmap_common_params.yaml" command="load"
       ns="global_costmap" />
-    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/local_costmap_params.yaml" command="load" />
-    <rosparam file="/home/krsbi/sena2024_ws/src/costmap/global_costmap_params.yaml" command="load" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/global_costmap_params.yaml" command="load" />
     <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/base_local_planner_params.yaml" command="load" /> -->
-    <rosparam file="/home/krsbi/sena2024_ws/src/planner/dwa_local_planner_params.yaml" command="load"
-      ns="move_base/DWAPlannerROS" />
+    <rosparam file="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/dwa_local_planner_params.yaml" command="load"
+      ns="/move_base/DWAPlannerROS" />
+
     <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/teb_local_planner_params.yaml" command="load" ns="move_base/TebLocalPlannerROS" /> -->
-    <rosparam file="/home/krsbi/sena2024_ws/src/planner/move_base_params.yaml" command="load" />
-    <rosparam file="/home/krsbi/sena2024_ws/src/planner/navfn_global_planner_params.yaml" command="load" />
+    <!-- <param name="move_base" value="/home/krsbi/sena2024_ws/src/robot_tf_pkg/config/dwa_local_planner_params.yaml" /> -->
+    <!-- <rosparam file="/home/krsbi/sena2024_ws/src/planner/navfn_global_planner_params.yaml" command="load" /> -->
   </node>
 </launch>

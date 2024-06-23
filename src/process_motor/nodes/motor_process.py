@@ -11,23 +11,23 @@ def feedback(msg):
     kinem = Twist()
     mot_val = motor()
     x = msg.linear.x
-    y = msg.linear.y
-    z = msg.angular.z
+    y = -(msg.linear.y)
+    z = (msg.angular.z)
     # z = 0
 
     matriks = np.array([[-0.33, 0.58, 0.33],
             [-0.33, -0.58, 0.33],
             [0.67, 0, 0.33]])
-    pergerakan = np.array([x, y, z])
+    pergerakan = np.array([y, x, z])
 
     hasil = np.dot(matriks, pergerakan)
     # hasil = np.dot(pergerakan, matriks)
  
     [mot1, mot2, mot3] = hasil
 
-    mot1 = (mot1*255)/6
-    mot2 = (mot2*255)/6
-    mot3 = (mot3*255)/6
+    mot1 = (mot1*255)
+    mot2 = (mot2*255)
+    mot3 = (mot3*255)
 
     mot1 = int(mot1)
     mot2 = int(mot2)

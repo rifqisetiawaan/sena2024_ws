@@ -1,8 +1,0 @@
-prefix=/home/krsbi/sena2024_ws/install
-
-Name: process_motor
-Description: Description of process_motor
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

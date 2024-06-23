@@ -1,8 +1,8 @@
 local_costmap:
   global_frame: odom  # Frame global, biasanya /odom untuk odometri
-  robot_base_frame: base_footprint  # Frame dasar robot
-  update_frequency: 1.0  # Frekuensi pembaruan costmap dalam Hertz
-  publish_frequency: 2.0  # Frekuensi publikasi costmap dalam Hertz
+  robot_base_frame: base_link  # Frame dasar robot
+  update_frequency: 0.5  # Frekuensi pembaruan costmap dalam Hertz
+  publish_frequency: 1.0  # Frekuensi publikasi costmap dalam Hertz
   transform_tolerance: 0.5  # Toleransi waktu untuk transformasi
   static_map: true  #  menggunakan peta statis
   rolling_window: false  # tidak menggunakan jendela bergulir

@@ -21,12 +21,14 @@
     <!-- <node name="odom_tf2_broadcaster" pkg="robot_tf_pkg" type="odom_tf2_broadcaster.py" output="screen">
         <param name="robot" type="string" value="robot" />
     </node> -->
+    <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
+    <node name="sementara" pkg="robot_tf_pkg" type="sementara2.py" output="screen" />
 
     <!-- TF BASE FOOTPRINT BROADCAST -->
 
-    <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
+    <!-- <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
         <param name="robot" type="string" value="robot" />
-    </node>
+    </node> -->
 
     <node type="rviz" name="rviz" pkg="rviz" respawn="false"
         args="-d /home/krsbi/sena2024_ws/src/robot_tf_pkg/rviz/sena_rviz.rviz" output="screen" />

@@ -14,7 +14,7 @@ import math
 import numpy as np
 
 
-def handle_turtle_pose(msg, turtlename):
+def handle_turtle_pose(msg):
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     Robotpub = rospy.Publisher('robot_pos', Pose, queue_size=10)
@@ -64,10 +64,9 @@ def handle_turtle_pose(msg, turtlename):
 
 if __name__ == '__main__':
     rospy.init_node('tf2_odom_broadcaster')
-    turtlename = rospy.get_param('~robot')
+    # turtlename = rospy.get_param('~robot')
     rospy.Subscriber('enco_value',
                      encoder,
-                     handle_turtle_pose,
-                     turtlename)
+                     handle_turtle_pose)
     # rospy.Publisher()
     rospy.spin()

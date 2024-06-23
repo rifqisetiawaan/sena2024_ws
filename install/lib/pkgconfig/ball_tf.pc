@@ -1,8 +1,0 @@
-prefix=/home/krsbi/sena2024_ws/install
-
-Name: ball_tf
-Description: Description of ball_tf
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

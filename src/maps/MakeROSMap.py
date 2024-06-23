@@ -11,13 +11,13 @@ prompt = '> '
  
 # print("What is the name of your floor plan you want to convert to a ROS map:") 
 # file_name = input(prompt)
-file_name = "/home/krsbi/sena2024_ws/src/maps/lapangan_binary_3226.png"
+file_name = "/home/krsbi/sena2024_ws/src/maps/lapangan_binary_2632.png"
 # print("You will need to choose the x coordinates horizontal with respect to each other")
 # print("Double Click the first x point to scale")
 #
 # Read in the image
 #
-image = cv2.imread(file_name)
+image = cv2.imread("/home/krsbi/sena2024_ws/src/maps/lapangan_binary_2632.png")
 #
 # Some variables
 #
@@ -97,7 +97,7 @@ def draw_point(event,x,y,flags,param):
       completeFileNameMap = os.path.join(mapLocation, mapName +".pgm")
       completeFileNameYaml = os.path.join(mapLocation, mapName +".yaml")
       yaml = open(completeFileNameYaml, "w")
-      cv2.imwrite(completeFileNameMap, res );
+      cv2.imwrite(completeFileNameMap, res )
         #
         # Write some information into the file
         #

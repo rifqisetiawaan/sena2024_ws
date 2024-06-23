@@ -1,5 +1,5 @@
 global_frame: map
-robot_base_frame: base_footprint
+robot_base_frame: base_link
 transform_tolerance: 0.2
 robot_radius: 0.05
 # footprint: [[-0.31, -0.69], [-0.31, 0.25], [0.31, 0,25], [0.31, -0.69]]
@@ -7,7 +7,7 @@ robot_radius: 0.05
 # footprint: [[-0.1, -0.1], [-0.1, 0.1], [0.1, 0.1], [-0.1, 0.1]]
 footprint: [[0, 0.15], [-0.15, -0.15], [0.15, -0.15]]
 
-update_frequency: 0.2
+update_frequency: 0.5
 publish_frequency: 2.0
 rolling_window: false
 track_unknown_space:  true
