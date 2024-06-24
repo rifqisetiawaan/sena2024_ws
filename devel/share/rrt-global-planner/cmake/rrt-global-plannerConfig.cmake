@@ -67,7 +67,7 @@ set(rrt-global-planner_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(rrt-global-planner_SOURCE_PREFIX /home/krsbi/sena2024_ws/src/planner/rrt-global-planner)
+  set(rrt-global-planner_SOURCE_PREFIX /home/krsbi/sena2024_ws/src/rrt-global-planner)
   set(rrt-global-planner_DEVEL_PREFIX /home/krsbi/sena2024_ws/devel)
   set(rrt-global-planner_INSTALL_PREFIX "")
   set(rrt-global-planner_PREFIX ${rrt-global-planner_DEVEL_PREFIX})
@@ -110,7 +110,7 @@ if(NOT " " STREQUAL " ")
         message(FATAL_ERROR "Project 'rrt-global-planner' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'rrt-global-planner' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/krsbi/sena2024_ws/src/planner/rrt-global-planner/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'rrt-global-planner' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/krsbi/sena2024_ws/src/rrt-global-planner/${idir}'.  ${_report}")
     endif()
     _list_append_unique(rrt-global-planner_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/krsbi/sena2024_ws/devel/lib;/home/krsbi/ros_motion_planning/devel/lib;/home/krsbi/dwa_ws/devel/lib;/home/krsbi/omni_robot/devel/lib;/home/krsbi/navegation-ros/catkin_ws/devel/lib;/home/krsbi/omni_robot_ws/devel/lib;/home/krsbi/apf_ws/devel/lib;/home/krsbi/OpenBase/ROS/devel/lib;/home/krsbi/turtle_ws/devel/lib;/home/krsbi/sena2024_ws/devel/lib;/home/krsbi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/krsbi/sena2024_ws/devel/lib;/home/krsbi/omnidrive_gazebo_ws/devel/lib;/home/krsbi/ros_motion_planning/devel/lib;/home/krsbi/dwa_ws/devel/lib;/home/krsbi/navegation-ros/catkin_ws/devel/lib;/home/krsbi/omni_robot_ws/devel/lib;/home/krsbi/apf_ws/devel/lib;/home/krsbi/OpenBase/ROS/devel/lib;/home/krsbi/turtle_ws/devel/lib;/home/krsbi/sena2024_ws/devel/lib;/home/krsbi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

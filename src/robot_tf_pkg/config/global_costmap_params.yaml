@@ -16,8 +16,8 @@ global_costmap:
         map_topic: map
         unknown_cost_value: -1
         lethal_cost_threshold: 255
-        track_unknown_space: true
+        track_unknown_space: false
 
     inflation_layer:
-        inflation_radius: 0.3
-        cost_scaling_factor: 0
+        inflation_radius: 0.35
+        cost_scaling_factor: 1

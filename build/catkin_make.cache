@@ -1,2 +1,2 @@
-ball_tf:cam_stream:camera_yolo:obs_tf:odometry:planner/rrt-global-planner:process_motor:robot_tf_pkg:trial_simulation
+ball_tf:cam_stream:camera_yolo:obs_tf:odometry:process_motor:robot_tf_pkg:rrt-global-planner:trial_simulation
 -DCATKIN_DEVEL_PREFIX=/home/krsbi/sena2024_ws/devel -DCMAKE_INSTALL_PREFIX=/home/krsbi/sena2024_ws/install -G Unix Makefiles

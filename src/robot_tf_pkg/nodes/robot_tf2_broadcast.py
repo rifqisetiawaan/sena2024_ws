@@ -1,102 +1,115 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
-import rospy
-import tf2_ros
-import geometry_msgs.msg
 import math
-import numpy as np
+from math import sin, cos, pi
+import rospy
+import tf
+from nav_msgs.msg import Odometry
+from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
 from robot_tf_pkg.msg import encoder
-from tf.transformations import quaternion_from_euler
 
-# Fungsi untuk mengkonversi data encoder menjadi posisi dan orientasi
-def handle_turtle_pose(msg):
-    br = tf2_ros.TransformBroadcaster()
-    t = geometry_msgs.msg.TransformStamped()
+# Initialize the ROS node
+rospy.init_node('odometry_publisher')
 
-    # Konversi pulsa ke mm
-    dist1 = 2 * math.pi * 50 * (msg.enc1 / 135)
-    dist2 = 2 * math.pi * 50 * (msg.enc2 / 135)
-    dist3 = 2 * math.pi * 50 * (msg.enc3 / 135)
+# Publishers and Transform Broadcaster
+odom_pub = rospy.Publisher("odom", Odometry, queue_size=50)
+pose_pub = rospy.Publisher("robot_pos", Pose, queue_size=10)
+odom_broadcaster = tf.TransformBroadcaster()
 
-    # Kalkulasi encoder 3 roda
-    vy = dist1 * math.cos(math.radians(30)) - dist2 * math.cos(math.radians(30))
-    vx = dist3 - dist1 * math.sin(math.radians(30)) - dist2 * math.sin(math.radians(30))
-    vo = -((dist1 / 218) + (dist2 / 218) + (dist3 / 218)) / 3
-    vo = math.radians(vo)
+# Initialize position and orientation
+x = 0.0
+y = 0.0
+th = 0.0
 
-    # Koordinat kartesian
-    a = np.array([
-        [math.cos(vo), -math.sin(vo), 0],
-        [math.sin(vo), math.cos(vo), 0],
-        [0, 0, 1]
-    ])
-    b = np.array([vy, vx, vo])
-    koor = np.dot(a, b)
-    ypos, xpos, theta = koor
+# Initialize velocities
+vx = 0.0
+vy = 0.0
+vth = 0.0
 
-    return vx, vy, vo
+# Wheel radius and distance from the center to the wheel
+wheel_radius = 0.05  # 50 mm converted to meters
+robot_radius = 0.218   # This should be set to your robot's actual radius
 
-def broadcast_transforms():
-    rospy.init_node('tf_broadcaster')
+# Time management
+current_time = rospy.Time.now()
+last_time = rospy.Time.now()
 
-    br = tf2_ros.TransformBroadcaster()
-    t = geometry_msgs.msg.TransformStamped()
+# Callback function to handle encoder data
+def encoder_callback(data):
+    global vx, vy, vth
+    # Get the velocities of each wheel (in rad/s)
+    w1 = data.enc1
+    w2 = data.enc2
+    w3 = data.enc3
+    float("{:.2f}".format(w1))
+    float("{:.2f}".format(w2))
+    float("{:.2f}".format(w3))
 
-    def encoder_callback(msg):
-        xpos, ypos, theta = handle_turtle_pose(msg)
+    # Convert wheel angular velocities to linear velocities
+    v1 = w1 * wheel_radius
+    v2 = w2 * wheel_radius
+    v3 = w3 * wheel_radius
 
-        # Mengirim transformasi dari map ke odom
-        current_time = rospy.Time.now()
-        t.header.stamp = current_time
-        t.header.frame_id = "map"
-        t.child_frame_id = "odom"
-        t.transform.translation.x = xpos/1000  # Menggunakan xpos untuk x
-        t.transform.translation.y = ypos/1000  # Menggunakan ypos untuk y
-        t.transform.translation.z = 0.0
-        t.transform.rotation.x = 0.0
-        t.transform.rotation.y = 0.0
-        t.transform.rotation.z = 0.0
-        t.transform.rotation.w = 1.0
+    # Convert wheel velocities to robot's linear and angular velocities
+    vx = (2/3) * (v1 - 0.5 * v2 - 0.5 * v3)
+    vy = (1/math.sqrt(3)) * (v2 - v3)
+    vth = (1/(3 * robot_radius)) * (v1 + v2 + v3)
 
-        br.sendTransform(t)
+# Subscriber to encoder data
+rospy.Subscriber("enco_value", encoder, encoder_callback)
 
-        # Mengirim transformasi dari odom ke base_footprint
-        t.header.stamp = current_time
-        t.header.frame_id = "odom"
-        t.child_frame_id = "base_footprint"
-        t.transform.translation.x = 0.0  # Asumsi bahwa base_footprint berada tepat di atas odom
-        t.transform.translation.y = 0.0
-        t.transform.translation.z = 0.0
-        # q = quaternion_from_euler(0, 0, 0)
-        t.transform.rotation.x = 0
-        t.transform.rotation.y = 0
-        t.transform.rotation.z = 0
-        t.transform.rotation.w = 1
+# Main loop
+r = rospy.Rate(10.0)
+while not rospy.is_shutdown():
+    current_time = rospy.Time.now()
 
-        br.sendTransform(t)
+    # Compute odometry in a typical way given the velocities of the robot
+    dt = (current_time - last_time).to_sec()
+    delta_x = (vx * cos(th) - vy * sin(th)) * dt
+    delta_y = (vx * sin(th) + vy * cos(th)) * dt
+    delta_th = vth * dt
 
-        # Mengirim transformasi dari base_footprint ke base_link
-        t.header.stamp = current_time
-        t.header.frame_id = "base_footprint"
-        t.child_frame_id = "base_link"
-        t.transform.translation.x = 0.0  # Asumsi bahwa base_link berada tepat di atas base_footprint
-        t.transform.translation.y = 0.0
-        t.transform.translation.z = 0.0
-        q = quaternion_from_euler(0, 0, math.degrees(theta))
-        t.transform.rotation.x = q[0]
-        t.transform.rotation.y = q[1]
-        t.transform.rotation.z = q[2]
-        t.transform.rotation.w = q[3]
+    x += delta_x
+    y += delta_y
+    th += delta_th
 
-        br.sendTransform(t)
+    # Since all odometry is 6DOF we'll need a quaternion created from yaw
+    odom_quat = tf.transformations.quaternion_from_euler(0, 0, th)
 
-    # Subscriber untuk encoder data
-    rospy.Subscriber('enco_value', encoder, encoder_callback)  # Gantilah 'encoder_topic' dan EncoderMsg sesuai dengan topik dan tipe pesan Anda
+    # First, we'll publish the transform over tf
+    odom_broadcaster.sendTransform(
+        (x, y, 0.),
+        odom_quat,
+        current_time,
+        "base_link",
+        "odom"
+    )
 
-    rospy.spin()
+    # Next, we'll publish the odometry message over ROS
+    odom = Odometry()
+    odom.header.stamp = current_time
+    odom.header.frame_id = "odom"
 
-if __name__ == '__main__':
-    try:
-        broadcast_transforms()
-    except rospy.ROSInterruptException:
-        pass
+    # Set the position
+    odom.pose.pose = Pose(Point(x, y, 0.), Quaternion(*odom_quat))
+
+    # Set the velocity
+    odom.child_frame_id = "base_link"
+    odom.twist.twist = Twist(Vector3(vx, vy, 0), Vector3(0, 0, vth))
+
+    # Publish the message
+    odom_pub.publish(odom)
+
+    # publish robot position for the ball
+    pose_rob = Pose()
+    pose_rob.position.x = x
+    pose_rob.position.y = y
+    pose_rob.orientation.x = odom_quat[0]
+    pose_rob.orientation.y = odom_quat[1]
+    pose_rob.orientation.z = odom_quat[2]
+    pose_rob.orientation.w = odom_quat[3]
+
+    pose_pub.publish(pose_rob)
+
+    last_time = current_time
+    r.sleep()

@@ -1,28 +1,28 @@
 # DWAPlannerROS:
-acc_lim_x: 5.0  # Membatasi percepatan agar lebih halus
+acc_lim_x: 5.0  # Berdasarkan percepatan maksimum motor
 acc_lim_y: 5.0
-acc_lim_theta: 5.0  # Membatasi percepatan rotasi agar lebih stabil
-max_vel_x: 10.0  # Kecepatan maksimum yang aman untuk robot
-min_vel_x: -10.0
-max_vel_y: 10.0  # Kecepatan maksimum yang aman untuk robot
-min_vel_y: -10.0
-max_vel_trans: 10.0  # Mengurangi sedikit untuk keamanan
-min_vel_trans: -10.0
-max_vel_theta: 10.0  # Kecepatan rotasi maksimum yang lebih aman
-min_vel_theta: -10.0
-xy_goal_tolerance: 0.1  # Toleransi kesalahan posisi yang standar
-yaw_goal_tolerance: 0.1  # Toleransi kesalahan orientasi yang standar
+acc_lim_theta: 5.0
+max_vel_x: 5.0  # Berdasarkan kecepatan maksimum robot
+min_vel_x: -5.0
+max_vel_y: 5.0
+min_vel_y: -5.0
+max_vel_trans: 5.0
+min_vel_trans: -5.0
+max_vel_theta: 5.0
+min_vel_theta: -5.0
+xy_goal_tolerance: 0.05  # Toleransi posisi berdasarkan kebutuhan
+yaw_goal_tolerance: 0.05  # Toleransi orientasi berdasarkan kebutuhan
 latch_xy_goal_tolerance: false
-sim_time: 2.0  # Waktu simulasi dikurangi untuk respons lebih cepat
-vx_samples: 10  # Sampel kecepatan yang cukup untuk robot kecil
-vy_samples: 10
-vtheta_samples: 10  # Sampel kecepatan rotasi yang cukup
-path_distance_bias: 0.6  # Bias jarak lintasan yang dioptimalkan
-goal_distance_bias: 0.8  # Bias jarak tujuan yang dioptimalkan
-occdist_scale: 0.01  # Skala jarak halangan yang lebih rendah
-forward_point_distance: 0.25  # Jarak titik depan yang sesuai untuk robot ukuran 0.5x0.5 meter
-stop_time_buffer: 0.2  # Buffer waktu berhenti standar
-scaling_speed: 0.25  # Penskalaan kecepatan yang aman
+sim_time: 2.0
+vx_samples: 5
+vy_samples: 5
+vtheta_samples: 7
+path_distance_bias: 2  # Bias jarak lintasan untuk mengurangi deselerasi dan memperbaiki lintasan
+goal_distance_bias: 10  # Bias jarak tujuan untuk mengurangi deselerasi dan memperbaiki lintasan
+occdist_scale: 2.0  # Skala jarak halangan ditingkatkan untuk menghindari tabrakan
+forward_point_distance: 0.3  # Jarak titik depan disesuaikan dengan dimensi robot (600 mm sisi segitiga)
+stop_time_buffer: 0.2  # Buffer waktu berhenti
+scaling_speed: 1
 max_scaling_factor: 0.2
-oscillation_reset_dist: 0.05  # Jarak reset osilasi standar
-holonomic_robot: true  # Untuk robot dengan omniwheel
+oscillation_reset_dist: 0.05  # Jarak reset osilasi
+holonomic_robot: true  # Berdasarkan jenis roda (omniwheel)

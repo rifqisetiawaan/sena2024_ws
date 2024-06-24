@@ -12,14 +12,14 @@ from prcs_image.image_process import process_img as pr
 from prcs_image.command_vel import velo as vl
 from ultralytics import YOLO
 import joblib
-from sklearn.preprocessing import PolynomialFeatures
+# from sklearn.preprocessing import PolynomialFeatures
 
-model_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_regression_model.pkl'
-poly_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_features.pkl'
+# model_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_regression_model.pkl'
+# poly_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_features.pkl'
 
 # Load the model and polynomial features
-model_poly = joblib.load(model_filename)
-poly = joblib.load(poly_filename)
+# model_poly = joblib.load(model_filename)
+# poly = joblib.load(poly_filename)
 message = Pose()
 
 def publish_message():
@@ -37,6 +37,7 @@ def publish_message():
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
+        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
         poseBall.position.x = 0.0
         poseBall.position.y = 0.0
         poseObs.position.x = 0.0
@@ -51,7 +52,7 @@ def publish_message():
             names = results[0].names
             confidences = max([results[0].boxes.conf.tolist()])
             # plot titik tengah kamera
-            cv2.circle(frame, (325, 240), 
+            cv2.circle(frame, (325, 240),
                     radius=30, color=(0, 0, 255), thickness=1)
             # cv2.circle(frame, (340, 240), 
             #         radius=30, color=(0, 0, 255), thickness=1)
@@ -121,10 +122,14 @@ def publish_message():
                     # lempar ke message Point32 hasil centroid bola
                     cbx = (640-(cbx-0))
                     cby = (480-(cby-0))
-                    # cbx = -5768+990*np.log(cbx)
-                    # cby = -5768+990*np.log(cby)
+                    # cbx = (480-(cbx-0))
+                    # cby = (640-(cby-0))
                     poseBall.position.x = cbx
                     poseBall.position.y = cby
+                    poseBall.orientation.x = 0
+                    poseBall.orientation.y = 0
+                    poseBall.orientation.z = 0.71
+                    poseBall.orientation.w = 0.71
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
 

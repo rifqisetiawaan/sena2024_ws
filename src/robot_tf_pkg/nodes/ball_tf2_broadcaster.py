@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 import rospy
-
-# Because of transformations
 import tf2_ros
 import geometry_msgs.msg
 from std_msgs.msg import Float32
@@ -11,96 +9,83 @@ from geometry_msgs.msg import PoseStamped
 import math
 import numpy as np
 
-def handle_robot_pose(msg):
-    global xpos
-    global ypos
-    xpos = msg.position.x
-    ypos = msg.position.y
+class BallBroadcaster:
+    def __init__(self):
+        rospy.init_node('tf2_ball_broadcaster')
+        self.turtlename = rospy.get_param('~balls')
+        self.xpos = 0
+        self.ypos = 0
+        
+        self.ball_pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
+        
+        rospy.Subscriber('ballPos_topic', Pose, self.handle_ball_pose)
+        rospy.Subscriber('robot_pos', Pose, self.handle_robot_pose)
+        
+    def handle_robot_pose(self, msg):
+        self.xpos = msg.position.x
+        self.ypos = msg.position.y
     
-def handle_ball_pose(msg, turtlename):
-    global xpos
-    global ypos
-    Ballpub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
-    # Ballpub = rospy.Publisher('/move_base/current_goal', PoseStamped, queue_size=10)
-    # Ballpub = rospy.Publisher('/goal', PoseStamped, queue_size=10)
-    br = tf2_ros.TransformBroadcaster()
-    t = geometry_msgs.msg.TransformStamped()
-    posBall = PoseStamped()
-    X = xpos/1000 + ((msg.position.x-325)/1000)*2
-    Y = ypos/1000 + ((msg.position.y-245)/1000)*2
+    def handle_ball_pose(self, msg):
+        br = tf2_ros.TransformBroadcaster()
+        t = geometry_msgs.msg.TransformStamped()
+        posBall = PoseStamped()
+        
+        # x = self.xpos/1000 
+        # y = self.ypos/1000 
+        x = -self.xpos + ((msg.position.x-325)/1000)*1.5
+        y = -self.ypos + ((msg.position.y-240)/1000)*1.5
 
-    # x_new = X * math.cos(math.radians(135)) - Y * math.sin(math.radians(135))
-    # y_new = X * math.cos(math.radians(135)) + Y * math.sin(math.radians(135))
-    if msg.position.x == 0 and msg.position.y == 0:
-        t.header.stamp = rospy.Time.now()
-        t.header.frame_id = "map"
-        t.child_frame_id = turtlename
-        t.transform.translation.x = xpos
-        t.transform.translation.y = ypos
-        t.transform.translation.z = 0.0
-        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-        t.transform.rotation.x = 0
-        t.transform.rotation.y = 0
-        t.transform.rotation.z = 0.71
-        t.transform.rotation.w = 0.71
-        # ------------
-        posBall.header.frame_id = 'map'
-        posBall.header.stamp = rospy.Time.now()
-        posBall.pose.position.x = xpos
-        posBall.pose.position.y = ypos
-        posBall.pose.position.z = 0.0
-        posBall.pose.orientation.x = 0
-        posBall.pose.orientation.y = 0
-        posBall.pose.orientation.z = 0.71
-        posBall.pose.orientation.w = 0.71
-        Ballpub.publish(posBall)
-    else:
-        t.header.stamp = rospy.Time.now()
-        t.header.frame_id = "map"
-        t.child_frame_id = turtlename
-        t.transform.translation.x = X
-        t.transform.translation.y = Y
-        t.transform.translation.z = 0.0
-        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-        # t.transform.rotation.x = q[0]
-        # t.transform.rotation.y = q[1]
-        # t.transform.rotation.z = q[2]
-        # t.transform.rotation.w = q[3]
-        t.transform.rotation.x = 0
-        t.transform.rotation.y = 0
-        t.transform.rotation.z = 0.71
-        t.transform.rotation.w = 0.71
-        # ---------
-        posBall.header.frame_id = 'map'
-        posBall.header.stamp = rospy.Time.now()
-        posBall.pose.position.x = X
-        posBall.pose.position.y = Y
-        # posBall.pose.position.x = 0.3
-        # posBall.pose.position.y = 1.8
-        posBall.pose.position.z = 0.0
-        posBall.pose.orientation.x = 0
-        posBall.pose.orientation.y = 0
-        posBall.pose.orientation.z = 0.71
-        posBall.pose.orientation.w = 0.71
-        Ballpub.publish(posBall)
-    br.sendTransform(t)
+        # Rotate coordinates by 90 degrees counterclockwise
+        x_rotated = y
+        y_rotated = -x
 
+        if msg.position.x == 0 and msg.position.y == 0:
+            t.header.stamp = rospy.Time.now()
+            t.header.frame_id = "map"
+            t.child_frame_id = self.turtlename
+            t.transform.translation.x = self.xpos
+            t.transform.translation.y = self.ypos
+            t.transform.translation.z = 0.0
+            t.transform.rotation.x = 0
+            t.transform.rotation.y = 0
+            t.transform.rotation.z = 0
+            t.transform.rotation.w = 1
+            
+            posBall.header.frame_id = 'map'
+            posBall.header.stamp = rospy.Time.now()
+            posBall.pose.position.x = self.xpos
+            posBall.pose.position.y = self.ypos
+            posBall.pose.position.z = 0.0
+            posBall.pose.orientation.x = 0
+            posBall.pose.orientation.y = 0
+            posBall.pose.orientation.z = 0
+            posBall.pose.orientation.w = 1
+            self.ball_pub.publish(posBall)
+        else:
+            t.header.stamp = rospy.Time.now()
+            t.header.frame_id = "map"
+            t.child_frame_id = self.turtlename
+            t.transform.translation.x = x_rotated
+            t.transform.translation.y = y_rotated
+            t.transform.translation.z = 0.0
+            t.transform.rotation.x = 0
+            t.transform.rotation.y = 0
+            t.transform.rotation.z = 0
+            t.transform.rotation.w = 1
+            
+            posBall.header.frame_id = 'map'
+            posBall.header.stamp = rospy.Time.now()
+            posBall.pose.position.x = x_rotated
+            posBall.pose.position.y = y_rotated
+            posBall.pose.position.z = 0.0
+            posBall.pose.orientation.x = 0
+            posBall.pose.orientation.y = 0
+            posBall.pose.orientation.z = 0
+            posBall.pose.orientation.w = 1
+            self.ball_pub.publish(posBall)
+            
+        br.sendTransform(t)
 
 if __name__ == '__main__':
-    rospy.init_node('tf2_ball_broadcaster')
-    turtlename = rospy.get_param('~balls')
-    # rospy.Subscriber('enco_value',
-    #                  encoder,
-    #                  handle_robot_pose)
-    rospy.Subscriber('ballPos_topic',
-                     Pose,
-                     handle_ball_pose,
-                     turtlename)
-    rospy.Subscriber('robot_pos',
-                     Pose,
-                     handle_robot_pose)
-    
-    # rospy.Publisher('/move_base_simple/goal',PoseStamped,queue_size=10)
+    broadcaster = BallBroadcaster()
     rospy.spin()
