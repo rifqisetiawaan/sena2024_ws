@@ -12,15 +12,15 @@ from prcs_image.image_process import process_img as pr
 from prcs_image.command_vel import velo as vl
 from ultralytics import YOLO
 import joblib
-# from sklearn.preprocessing import PolynomialFeatures
 
-# model_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_regression_model.pkl'
-# poly_filename = '/home/krsbi/sena2024_ws/src/camera_yolo/src/script/polynomial_features.pkl'
 
-# Load the model and polynomial features
-# model_poly = joblib.load(model_filename)
-# poly = joblib.load(poly_filename)
 message = Pose()
+
+def get_center_coordinates(box):
+    x_min, y_min, x_max, y_max = box
+    x_center = (x_min + x_max) / 2
+    y_center = (y_min + y_max) / 2
+    return int(x_center), int(y_center)
 
 def publish_message():
     Ballpub = rospy.Publisher('ballPos_topic', Pose, queue_size=10)
@@ -113,17 +113,12 @@ def publish_message():
                 elif classes == [0.0]:
                     # hitung centroid bola
                     x1b, y1b, x2b, y2b = boxes[0]
-                    cent_bola = pr.process_image.find_centroid(x1b, y1b, x2b, y2b)
-                    
-                    # plot hasil centroid
-                    pr.process_image.plot_line(frame, cent_bola)
-                    print(str(cent_bola))
-                    cbx, cby = cent_bola
-                    # lempar ke message Point32 hasil centroid bola
-                    cbx = (640-(cbx-0))
+                    cbx, cby = get_center_coordinates([[x1b, y1b, x2b, y2b]])
                     cby = (480-(cby-0))
-                    # cbx = (480-(cbx-0))
-                    # cby = (640-(cby-0))
+                    cby = cby - 325
+                    cbx = cbx - 240
+                    # cbx = (640-(cbx-0))
+                    # cby = (480-(cby-0))
                     poseBall.position.x = cbx
                     poseBall.position.y = cby
                     poseBall.orientation.x = 0
