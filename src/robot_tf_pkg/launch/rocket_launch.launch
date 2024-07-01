@@ -40,8 +40,8 @@
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
-  <!-- <node type="rviz" name="rviz" pkg="rviz" respawn="false"
-    args="-d /home/krsbi/sena2024_ws/src/robot_tf_pkg/rviz/sena_rviz.rviz" output="screen" /> -->
+  <node type="rviz" name="rviz" pkg="rviz" respawn="false"
+    args="-d /home/krsbi/sena2024_ws/src/robot_tf_pkg/rviz/sena_rviz.rviz" output="screen" />
 
   <!-- NAV STACK -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
