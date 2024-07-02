@@ -17,10 +17,8 @@
         <param name="baud" type="int" value="57600" />
     </node>
 
-    <!-- TF ODOM BROADCAST -->
-    <!-- <node name="odom_tf2_broadcaster" pkg="robot_tf_pkg" type="odom_tf2_broadcaster.py" output="screen">
-        <param name="robot" type="string" value="robot" />
-    </node> -->
+    <!-- TF ROBOT BROADCAST -->
+
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
     <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen" />
 

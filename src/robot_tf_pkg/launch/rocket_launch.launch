@@ -24,10 +24,6 @@
     <param name="balls" type="string" value="balls" />
   </node>
 
-  <!-- BALL CALIB -->
-
-  <!-- <node name="ball_calib" pkg="camera_yolo" type="calib.py" output="screen" /> -->
-
   <!-- TF ROBOT BROADCAST -->
 
   <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />

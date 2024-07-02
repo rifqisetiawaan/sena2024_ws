@@ -27,8 +27,8 @@ def handle_ball_pose(msg, turtlename):
     posBall = PoseStamped()
     
     # Adjust coordinates
-    x = xpos + (msg.position.x / 100)
-    y = ypos + (msg.position.y / 100)
+    x = -xpos + (msg.position.x / 100)
+    y = -ypos + (msg.position.y / 100)
 
     # Rotate coordinates by 90 degrees counterclockwise
     x_rotated = y

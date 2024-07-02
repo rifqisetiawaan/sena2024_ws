@@ -13,7 +13,9 @@ rospy.init_node('odometry_publisher')
 
 # Publishers and Transform Broadcaster
 odom_pub = rospy.Publisher("odom", Odometry, queue_size=50)
+Robotpub = rospy.Publisher('robot_pos', Pose, queue_size=10)
 odom_broadcaster = tf.TransformBroadcaster()
+rob_pos = Pose()
 
 # Initialize position and orientation
 x = 0.0
@@ -98,8 +100,11 @@ while not rospy.is_shutdown():
     # Set the velocity
     odom.child_frame_id = "base_link"
     odom.twist.twist = Twist(Vector3(vx, vy, 0), Vector3(0, 0, vth))
+    rob_pos.position.x = x
+    rob_pos.position.y = y
 
     # Publish the message
+    Robotpub.publish(rob_pos)
     odom_pub.publish(odom)
 
     last_time = current_time
