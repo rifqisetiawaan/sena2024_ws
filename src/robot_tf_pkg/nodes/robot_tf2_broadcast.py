@@ -13,7 +13,6 @@ rospy.init_node('odometry_publisher')
 
 # Publishers and Transform Broadcaster
 odom_pub = rospy.Publisher("odom", Odometry, queue_size=50)
-pose_pub = rospy.Publisher("robot_pos", Pose, queue_size=10)
 odom_broadcaster = tf.TransformBroadcaster()
 
 # Initialize position and orientation
@@ -52,8 +51,11 @@ def encoder_callback(data):
 
     # Convert wheel velocities to robot's linear and angular velocities
     vx = (2/3) * (v1 - 0.5 * v2 - 0.5 * v3)
-    vy = (1/math.sqrt(3)) * (v2 - v3)
-    vth = (1/(3 * robot_radius)) * (v1 + v2 + v3)
+    # vy = (1/math.sqrt(3)) * (v2 - v3)
+    vth = ((1/(3 * robot_radius)) * (v1 + v2 + v3)) * 2
+    derajat = math.radians(30)
+    vy = v3 - (v2 * math.sin(derajat)) - (v1 *(math.sin(derajat)))
+    # vx = (v1 * math.cos(derajat)) - (v2 * math.cos(derajat))
 
 # Subscriber to encoder data
 rospy.Subscriber("enco_value", encoder, encoder_callback)
@@ -99,17 +101,6 @@ while not rospy.is_shutdown():
 
     # Publish the message
     odom_pub.publish(odom)
-
-    # publish robot position for the ball
-    pose_rob = Pose()
-    pose_rob.position.x = x
-    pose_rob.position.y = y
-    pose_rob.orientation.x = odom_quat[0]
-    pose_rob.orientation.y = odom_quat[1]
-    pose_rob.orientation.z = odom_quat[2]
-    pose_rob.orientation.w = odom_quat[3]
-
-    pose_pub.publish(pose_rob)
 
     last_time = current_time
     r.sleep()

@@ -1,50 +1,28 @@
 # DWAPlannerROS:
-# Robot Configuration Parameters
-max_vel_x: 0.5            # Maximum linear velocity in m/s
-min_vel_x: 0.0            # Minimum linear velocity in m/s
-max_vel_y: 0.5            # Maximum linear velocity in m/s (for holonomic robots)
-min_vel_y: -0.5           # Minimum linear velocity in m/s (for holonomic robots)
-max_trans_vel: 0.5        # Maximum translation velocity in m/s
-min_trans_vel: 0.1        # Minimum translation velocity in m/s
-max_rot_vel: 1.0          # Maximum rotational velocity in rad/s
-min_rot_vel: 0.4          # Minimum rotational velocity in rad/s
-acc_lim_x: 0.5            # Maximum linear acceleration in m/s^2
-acc_lim_y: 0.5            # Maximum linear acceleration in m/s^2 (for holonomic robots)
-acc_lim_theta: 1.0        # Maximum rotational acceleration in rad/s^2
-
-# Goal Tolerance Parameters
-yaw_goal_tolerance: 0.1   # Allowed tolerance in yaw direction in radians
-xy_goal_tolerance: 0.15   # Allowed tolerance in x and y directions in meters
-latch_xy_goal_tolerance: true  # Whether to latch the goal tolerance or not
-
-# Forward Simulation Parameters
-sim_time: 1.5             # Amount of time to forward-simulate trajectories
-sim_granularity: 0.025    # Step size for simulating trajectories
-vx_samples: 6             # Number of linear velocity samples to take
-vy_samples: 6             # Number of linear velocity samples to take (for holonomic robots)
-vtheta_samples: 20        # Number of angular velocity samples to take
-angular_sim_granularity: 0.025  # Step size for angular velocity simulation
-
-# Trajectory Scoring Parameters
-path_distance_bias: 0.6   # Weight given to path distance
-goal_distance_bias: 0.8   # Weight given to goal distance
-occdist_scale: 0.02       # Weight given to the distance from obstacles
-forward_point_distance: 0.325  # Distance ahead of the robot to score points
-
-# Oscillation Prevention Parameters
-oscillation_reset_dist: 0.05  # Distance the robot must travel to reset oscillation flags
-escape_reset_dist: 0.1     # Distance the robot must travel to reset escape flags
-
-# Holonomic Robot Setting
-holonomic_robot: true     # Set to true for holonomic robots
-
-# Debugging and Visualization
-publish_cost_grid_pc: true  # Whether to publish a cost grid PC
-publish_traj_pc: true     # Whether to publish a PC of the planned trajectory
-
-# ROS Parameters
-prune_plan: true          # Whether to prune the trajectory to the end
-
-# Recovery Behaviors
-clearing_rotation_allowed: true  # Whether a rotation recovery is allowed
-clearing_trans_allowed: true  # Whether a translation recovery is allowed
+acc_lim_x: 5.0  # Berdasarkan percepatan maksimum motor
+acc_lim_y: 5.0
+acc_lim_theta: 5.0
+max_vel_x: 5.0  # Berdasarkan kecepatan maksimum robot
+min_vel_x: -5.0
+max_vel_y: 5.0
+min_vel_y: -5.0
+max_vel_trans: 5.0
+min_vel_trans: -5.0
+max_vel_theta: 5.0
+min_vel_theta: -5.0
+xy_goal_tolerance: 0.05  # Toleransi posisi berdasarkan kebutuhan
+yaw_goal_tolerance: 0.13  # Toleransi orientasi berdasarkan kebutuhan
+latch_xy_goal_tolerance: false
+sim_time: 1.0
+vx_samples: 20
+vy_samples: 5
+vtheta_samples: 20
+path_distance_bias: 0.5  # Mengurangi deselerasi mendekati halangan
+goal_distance_bias: 1.0  # Mempercepat mendekati target tanpa mengurangi kecepatan
+occdist_scale: 1.0  # Skala jarak halangan ditingkatkan untuk menghindari tabrakan
+forward_point_distance: 0  # Jarak titik depan disesuaikan dengan dimensi robot
+stop_time_buffer: 0.1  # Buffer waktu berhenti
+scaling_speed: 1
+max_scaling_factor: 1
+oscillation_reset_dist: 0.05  # Jarak reset osilasi
+holonomic_robot: true  # Berdasarkan jenis roda (omniwheel)

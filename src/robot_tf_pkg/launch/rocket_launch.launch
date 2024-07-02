@@ -34,8 +34,8 @@
   <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen" />
 
   <!-- MAP -->
-  <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_3226_map.yaml" />
-  <!-- <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan3x3.yaml" /> -->
+  <!-- <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_v3/lapangan_2632_polos.yaml" /> -->
+  <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan3x3.yaml" />
 
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />

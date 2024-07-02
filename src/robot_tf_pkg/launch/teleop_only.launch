@@ -22,7 +22,7 @@
         <param name="robot" type="string" value="robot" />
     </node> -->
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
-    <node name="sementara" pkg="robot_tf_pkg" type="sementara2.py" output="screen" />
+    <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen" />
 
     <!-- TF BASE FOOTPRINT BROADCAST -->
 
