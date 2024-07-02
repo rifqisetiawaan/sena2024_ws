@@ -20,7 +20,7 @@ def get_center_coordinates(box):
     x_min, y_min, x_max, y_max = box
     x_center = (x_min + x_max) / 2
     y_center = (y_min + y_max) / 2
-    return int(x_center), int(y_center)
+    return x_center, y_center
 
 def angle_between_points(anchor, point1, point2):
     # anchor, point1, point2 are tuples (x, y)
@@ -80,7 +80,7 @@ def publish_message():
         poseObs.position.y = 0.0
 
         if ret==True:            
-            results = model(frame)
+            results = model(frame, conf=0.6)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -157,9 +157,10 @@ def publish_message():
                     theta = angle_between_points((325, 240), (325, 200), (cbx, cby))
                     radius = int(radius_calc(cbx, cby))
                     real_dist = regresi(radius)
-                    radius = int(radius)
-                    poseBall.position.x = cbx
-                    poseBall.position.y = cby
+                    xreal = real_dist * math.sin(math.radians(theta))
+                    yreal = real_dist * math.cos(math.radians(theta))
+                    poseBall.position.x = xreal
+                    poseBall.position.y = yreal
                     poseBall.orientation.x = 0
                     poseBall.orientation.y = 0
                     poseBall.orientation.z = 0.71
@@ -167,6 +168,8 @@ def publish_message():
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
                     font = cv2.FONT_HERSHEY_SIMPLEX
+                    cbx = int(cbx)
+                    cby = int(cby)
                     cv2.circle(frame, (325, 240), radius=0, color=(255, 255, 255), thickness=3)
                     cv2.circle(frame, (325, 240), radius=radius, color=(0, 255, 255), thickness=3)
                     cv2.circle(frame, (cbx, cby), radius=0, color=(0, 255, 255), thickness=3)
@@ -184,7 +187,7 @@ def publish_message():
                     cv2.putText(frame,'Distance Bola px: '+str("%.2f" % radius)+' px', 
                                 (50, 80), font, 0.5,
                                 (0, 255, 255), 1, cv2.LINE_4)
-                    cv2.putText(frame,'Distance Bola: '+str("%.2f" % real_dist)+' m', 
+                    cv2.putText(frame,'Distance Bola: '+str("%.2f" % real_dist)+' cm', 
                                 (50, 95), font, 0.5,
                                 (0, 255, 255), 1, cv2.LINE_4)
                     cv2.putText(frame,'Pixel X: '+str("%.2f" % cbx)+' px', 
@@ -193,8 +196,14 @@ def publish_message():
                     cv2.putText(frame,'Pixel Y: '+str("%.2f" % cby)+' px', 
                                 (50, 125), font, 0.5,
                                 (0, 255, 255), 1, cv2.LINE_4)
-                    cv2.putText(frame,'FPS: '+str(fps), 
+                    cv2.putText(frame,'Real X: '+str("%.2f" % xreal)+' cm', 
                                 (50, 140), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Real Y: '+str("%.2f" % yreal)+' cm', 
+                                (50, 155), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'FPS: '+str(fps), 
+                                (50, 170), font, 0.5,
                                 (0, 255, 255), 1, cv2.LINE_4)
 
                 else:

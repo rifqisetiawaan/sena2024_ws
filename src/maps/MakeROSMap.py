@@ -11,13 +11,13 @@ prompt = '> '
  
 # print("What is the name of your floor plan you want to convert to a ROS map:") 
 # file_name = input(prompt)
-file_name = "/home/krsbi/sena2024_ws/src/maps/lapangan_binary_2632.png"
+# file_name = "/home/krsbi/sena2024_ws/src/maps/lapangan_binary_2632.png"
 # print("You will need to choose the x coordinates horizontal with respect to each other")
 # print("Double Click the first x point to scale")
 #
 # Read in the image
 #
-image = cv2.imread("/home/krsbi/sena2024_ws/src/maps/lapangan_binary_2632.png")
+image = cv2.imread("/home/krsbi/sena2024_ws/src/maps/lapangan_v3/lapangan_binary_2632.png")
 #
 # Some variables
 #

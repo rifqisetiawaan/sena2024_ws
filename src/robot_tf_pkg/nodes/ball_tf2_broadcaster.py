@@ -32,12 +32,12 @@ class BallBroadcaster:
         
         # x = self.xpos/1000 
         # y = self.ypos/1000 
-        x = -self.xpos + ((msg.position.x-325)/1000)*1.5
-        y = -self.ypos + ((msg.position.y-240)/1000)*1.5
+        x = self.xpos/100 + ((msg.position.x)/100)
+        y = self.ypos/100 + ((msg.position.y)/100)
 
         # Rotate coordinates by 90 degrees counterclockwise
         x_rotated = y
-        y_rotated = -x
+        y_rotated = x
 
         if msg.position.x == 0 and msg.position.y == 0:
             t.header.stamp = rospy.Time.now()
